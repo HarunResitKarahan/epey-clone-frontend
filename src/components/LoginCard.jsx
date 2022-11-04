@@ -11,17 +11,23 @@ function LoginCard() {
                     Üye Ol
                 </div>
             </div>
-            <div className='Login mt-4'>
+            <form className='Login mt-4' onSubmit={(e) => e.preventDefault()}>
                 <div className='eMail'>
-                    <input className='p-2 mb-3' id="" type="email" placeholder='E-posta' />
+                    <input className='p-2 mb-3' id="" type="email" placeholder='E-posta' required />
                 </div>
                 <div className='password'>
-                    <input className='p-2' id="" type="password" placeholder='Şifre' />
+                    <input className='p-2' id="" type="password" placeholder='Şifre' required />
                 </div>
-                <div className='submit mt-2 p-2'>
+                <button className='submit mt-2 p-2'>
                     Giriş
+                </button>
+                <div>
+                    <div className='d-flex'>
+                        <input type="checkbox" name="remindMe" id="remindMe" />
+                        <label htmlFor="remindMe">Beni Hatırla</label>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     )
 }

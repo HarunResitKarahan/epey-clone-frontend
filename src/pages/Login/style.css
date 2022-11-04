@@ -32,10 +32,13 @@
 
 .Login input {
     width: 100%;
+    outline: none;
     border: 1px solid #d96140;
 }
 
 .Login .submit {
+    width: 100%;
+    border: none;
     background-color: #d96140;
     text-align: center;
     color: white;
