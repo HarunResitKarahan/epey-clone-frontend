@@ -1,5 +1,24 @@
+.featuredNews .featuredNewsList {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .featuredNews .featuredNewsList .featuredNewsItems {
     display: flex;
     align-items: center;
     font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
 }
+
+.featuredNews .featuredNewsList .featuredNewsItems .featuredNewsItemsContent {
+    background-color: #f8f4e0 !important;
+    cursor: pointer;
+}
+
+/* .featuredNews .featuredNewsList .featuredNewsItems .featuredNewsItemsContent:hover {
+    background-color: #d96140;
+    color: white;
+} */
