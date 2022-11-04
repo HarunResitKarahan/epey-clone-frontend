@@ -21,10 +21,13 @@ function LoginCard() {
                 <button className='submit mt-2 p-2'>
                     Giriş
                 </button>
-                <div>
-                    <div className='d-flex'>
-                        <input type="checkbox" name="remindMe" id="remindMe" />
-                        <label htmlFor="remindMe">Beni Hatırla</label>
+                <div className='extraInfo d-flex mt-1'>
+                    <div className='d-flex' style={{ cursor: "pointer" }}>
+                        <input type="checkbox" name="remindMe" id="remindMe" style={{ cursor: "pointer" }} />
+                        <label htmlFor="remindMe" style={{ cursor: "pointer" }}>Beni Hatırla</label>
+                    </div>
+                    <div className='forgetMyPassword ms-auto'>
+                        Şifremi Unuttum
                     </div>
                 </div>
             </form>
