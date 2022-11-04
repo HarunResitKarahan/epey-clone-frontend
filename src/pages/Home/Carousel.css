@@ -2,3 +2,18 @@
     width: 100%;
     height: 300px;
 }
+
+.carousel .carouselSubImages {
+    display: flex;
+    gap: 5px;
+}
+
+.carousel .carouselSubImages .subImages {
+    width: 20%;
+}
+
+.carousel .carouselSubImages .subImages img {
+    width: 100%;
+    height: 75px;
+    object-fit: cover;
+}

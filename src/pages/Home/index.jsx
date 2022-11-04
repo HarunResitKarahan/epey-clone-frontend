@@ -8,7 +8,7 @@ export function HomePage() {
   return (
     <div className="App container">
       <Navbar></Navbar>
-      <div className='row'>
+      <div className='row mt-1'>
         <Carousel></Carousel>
         <FeaturedNews></FeaturedNews>
       </div>
