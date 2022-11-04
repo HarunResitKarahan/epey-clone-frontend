@@ -2,13 +2,24 @@ import React, { useState } from 'react'
 
 function LoginCard() {
     const [changeCard, setChangeCard] = useState(true)
+    const changeButtonStyle = () => {
+        // console.log(window.event.target)
+        const buttons = document.querySelectorAll('.Buttons')
+        for (let item of buttons) {
+            if (window.event.target !== item) {
+                item.style.backgroundColor = '#fff'; item.style.color = 'black'
+            } else {
+                item.style.backgroundColor = '#d96140'; item.style.color = 'white'
+            }
+        }
+    }
     return (
         <div className='d-flex flex-column justify-content-center align-items-center mt-4 p-2 m-auto' style={{ width: "fit-content", }}>
             <div className='d-flex'>
-                <div className='LoginButton py-2 px-5 me-1 rounded' onClick={() => setChangeCard(true)}>
+                <div className='LoginButton Buttons py-2 px-5 me-1 rounded' onClick={() => { setChangeCard(true); changeButtonStyle(); }}>
                     Giriş
                 </div>
-                <div className='signInButton py-2 px-5 ms-1 rounded' onClick={() => setChangeCard(false)}>
+                <div className='signInButton Buttons py-2 px-5 ms-1 rounded' onClick={() => { setChangeCard(false); changeButtonStyle(); }}>
                     Üye Ol
                 </div>
             </div>
