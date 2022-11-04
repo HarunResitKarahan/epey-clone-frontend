@@ -4,8 +4,17 @@
 
 .lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem {
     background-color: white;
+    display: flex;
 }
 
 .lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem .productImage img {
     height: 100px;
+}
+
+.lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem .productSpecs {}
+
+.lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem .productSpecs .header {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
 }

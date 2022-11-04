@@ -14,7 +14,7 @@ function LastAddedProducts() {
                                 <img src={productImage} alt="" />
                             </div>
                             <div className='productSpecs'>
-                                <p>Philips XC8049/01 Şarjlı Süpürge</p>
+                                <p className='header'>Philips XC8049/01 Şarjlı Süpürge</p>
                             </div>
                         </div>
                     </div>
