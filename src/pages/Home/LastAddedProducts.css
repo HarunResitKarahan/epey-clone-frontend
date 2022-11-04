@@ -5,11 +5,17 @@
 .lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem {
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 2px 0px;
-    display: flex;
+    /* display: flex; */
+}
+
+.lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem .productImage {
+    text-align: center;
 }
 
 .lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem .productImage img {
     height: 110px;
+    /* width: 100%; */
+    /* object-fit: cover; */
 }
 
 .lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem .productSpecs {
