@@ -17,6 +17,13 @@
     background-color: #f8f4e0 !important;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.featuredNews .featuredNewsList .featuredNewsItems .featuredNewsItemsContent p {
+    white-space: nowrap;
+    display: inline;
 }
 
 .featuredNews .featuredNewsList .featuredNewsItems .featuredNewsItemsContent:hover {
