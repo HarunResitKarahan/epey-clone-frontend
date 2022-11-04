@@ -11,6 +11,7 @@
 
 .lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem:hover {
     box-shadow: rgba(0, 0, 0, 0.548) 0px 0px 2px 0px;
+    color: #d96140;
 }
 
 .lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem .productImage {
