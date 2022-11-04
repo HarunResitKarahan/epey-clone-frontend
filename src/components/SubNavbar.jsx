@@ -138,12 +138,28 @@ function SubNavbar() {
     }, [dropDownType])
 
     const showDropDown = (value) => {
+        const subNavbarItems = document.querySelectorAll('.subNavbarItems');
+        for (let item of subNavbarItems) {
+            item.removeAttribute("style");
+        }
         setDropDownType(value)
     }
     const hideDropDown = (value) => {
         setDropDownType(undefined)
+        if (value === undefined) {
+            const subNavbarItems = document.querySelectorAll('.subNavbarItems');
+            for (let item of subNavbarItems) {
+                item.removeAttribute("style");
+            }
+            return
+        }
         const subNavbarDropDown = document.querySelector('.subNavbarDropDown')
-        subNavbarDropDown.addEventListener('mouseenter', () => { showDropDown(value) })
+        const subNavbarItems = document.querySelectorAll('.subNavbarItems')[value];
+        subNavbarDropDown.addEventListener('mouseenter', () => {
+            showDropDown(value);
+            subNavbarItems.style.backgroundColor = 'white';
+            subNavbarItems.style.color = '#d96140'
+        })
     }
     return (
         <div className='subNavbar'>

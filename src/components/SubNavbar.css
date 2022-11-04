@@ -12,8 +12,8 @@
 .subNavbar .subNavbarItems {
     position: relative;
     cursor: pointer;
-    /* margin-right: 3px;
-    margin-left: 3px; */
+    margin-right: 3px;
+    margin-left: 3px;
 }
 
 .subNavbar .subNavbarItems:first-child::before {
