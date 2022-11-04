@@ -31,7 +31,7 @@ function Navbar() {
             }
         ]
     }]
-    console.log(categorys)
+    // console.log(categorys)
     return (
         <>
             <nav className="navbar navbar-expand-sm navbar-light py-0">
