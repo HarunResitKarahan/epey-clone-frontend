@@ -8,9 +8,23 @@ import image5 from '../../assets/images/robot-supurge-50.webp'
 
 export default function Carousel() {
     return (
-        <div className='carousel col-sm-8 pe-sm-1'>
-            <div className='carouselMainImage border mb-1'>
-                <img className='img-fluid' src={image1} alt="" />
+        <div className='carousel slide col-sm-8 pe-sm-1' data-bs-ride="carousel">
+            <div className='carousel-inner'>
+                <div className='carousel-item active carouselMainImage border mb-1' data-bs-interval="3000">
+                    <img className='img-fluid' src={image1} alt="" />
+                </div>
+                <div className='carousel-item carouselMainImage border mb-1' data-bs-interval="3000">
+                    <img className='img-fluid' src={image2} alt="" />
+                </div>
+                <div className='carousel-item carouselMainImage border mb-1' data-bs-interval="3000">
+                    <img className='img-fluid' src={image3} alt="" />
+                </div>
+                <div className='carousel-item carouselMainImage border mb-1' data-bs-interval="3000">
+                    <img className='img-fluid' src={image4} alt="" />
+                </div>
+                <div className='carousel-item carouselMainImage border mb-1' data-bs-interval="3000">
+                    <img className='img-fluid' src={image5} alt="" />
+                </div>
             </div>
             <div className='carouselSubImages'>
                 <div className='subImages border'>
