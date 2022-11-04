@@ -4,6 +4,7 @@ import Carousel from './Carousel';
 import FeaturedNews from './FeaturedNews';
 import LastAddedProducts from './LastAddedProducts'
 import PopulerProducts from './PopulerProducts';
+import Footer from '../../components/Footer';
 // import { Link } from 'react-router-dom';
 
 export function HomePage() {
@@ -16,6 +17,7 @@ export function HomePage() {
       </div>
       <LastAddedProducts></LastAddedProducts>
       <PopulerProducts></PopulerProducts>
+      <Footer></Footer>
     </div>
   );
 }
