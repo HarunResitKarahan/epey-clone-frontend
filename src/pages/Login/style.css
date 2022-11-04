@@ -34,3 +34,11 @@
     width: 100%;
     border: 1px solid #d96140;
 }
+
+.Login .submit {
+    background-color: #d96140;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+}

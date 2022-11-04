@@ -18,6 +18,9 @@ function LoginCard() {
                 <div className='password'>
                     <input className='p-2' id="" type="password" placeholder='Şifre' />
                 </div>
+                <div className='submit mt-2 p-2'>
+                    Giriş
+                </div>
             </div>
         </div>
     )
