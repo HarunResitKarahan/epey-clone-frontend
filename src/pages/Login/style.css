@@ -1,0 +1,27 @@
+.LoginButton {
+    cursor: pointer;
+    background-color: #d96140;
+    border: 1px solid #d96140;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.LoginButton:hover {
+    background-color: #fff;
+    color: black;
+}
+
+.signInButton {
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #d96140;
+    color: black;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.signInButton:hover {
+    background-color: #d96140;
+    color: white;
+}

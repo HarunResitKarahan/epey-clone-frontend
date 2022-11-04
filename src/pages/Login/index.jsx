@@ -1,6 +1,7 @@
 import './style.css';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import LoginCard from '../../components/LoginCard';
 // import { Link } from 'react-router-dom';
 
 export function Login() {
@@ -8,7 +9,7 @@ export function Login() {
         <div className="App">
             <div className='container'>
                 <Navbar></Navbar>
-                asd
+                <LoginCard></LoginCard>
             </div>
             <Footer></Footer>
         </div>
