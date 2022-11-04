@@ -8,7 +8,7 @@ function SubNavbar() {
     const basliklar = [
         [
             { "header": "Akıllı Telefon", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
-            { "header": "Telsiz Telefon", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
+            { "header": "Telsiz", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
             { "header": "Kulaklık", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
             { "header": "Akıllı Saat", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] }
         ],
@@ -139,40 +139,45 @@ function SubNavbar() {
 
     const showDropDown = (value) => {
         setDropDownType(value)
-        // console.log(dropDownType)
+    }
+    const hideDropDown = (value) => {
+        setDropDownType(undefined)
+        const subNavbarDropDown = document.querySelector('.subNavbarDropDown')
+        subNavbarDropDown.addEventListener('mouseenter', () => { showDropDown(value) })
     }
     return (
         <div className='subNavbar'>
             {subNavbarItems.map((e, i) => (
-                <div key={i} className='subNavbarItems p-2' onMouseEnter={() => showDropDown(i)} onMouseLeave={() => setDropDownType(undefined)} >
+                <div key={i} className='subNavbarItems p-2' onMouseEnter={() => showDropDown(i)} onMouseLeave={() => hideDropDown(i)} >
                     <p>{e}</p>
                 </div>
             ))
             }
-            {dropDownType !== undefined ? <div className='subNavbarDropDown p-2'>
-                <div className='container'>
-                    {/* {dropDownType} */}
-                    <div className='row justify-content-center'>
-                        {basliklar[dropDownType].map((e, i) => (
-                            <div key={i} className='col-4 py-2 col-md-3 d-flex flex-column justify-content-center'>
-                                <div className='subNavbarDropDownItems d-flex align-items-center'>
-                                    <div>
-                                        {parse(String(svgs[i]))}
+            {dropDownType !== undefined ?
+                <div className='subNavbarDropDown p-2' onMouseLeave={() => hideDropDown()}>
+                    <div className='container'>
+                        {/* {dropDownType} */}
+                        <div className='row justify-content-center'>
+                            {basliklar[dropDownType].map((e, i) => (
+                                <div key={i} className='col-4 py-2 col-md-3 d-flex flex-column justify-content-center'>
+                                    <div className='subNavbarDropDownItems d-flex align-items-center'>
+                                        <div>
+                                            {parse(String(svgs[i]))}
+                                        </div>
+                                        <div className='ms-1' style={{ fontSize: "14px", fontWeight: "500" }}>
+                                            {e.header}
+                                        </div>
                                     </div>
-                                    <div className='ms-1' style={{ fontSize: "14px", fontWeight: "500" }}>
-                                        {e.header}
+                                    <div className='ms-4'>
+                                        {e.subheaders.map((e1, i1) => (
+                                            <p key={i1} className='ms-1' style={{ fontSize: "13px" }}>- {e1}</p>
+                                        ))}
                                     </div>
                                 </div>
-                                <div className='ms-4'>
-                                    {e.subheaders.map((e1, i1) => (
-                                        <p key={i1} className='ms-1' style={{ fontSize: "13px" }}>- {e1}</p>
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </div> : ''}
+                </div> : ''}
         </div >
     )
 }
