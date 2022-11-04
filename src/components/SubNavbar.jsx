@@ -1,47 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './SubNavbar.css'
 
 function SubNavbar() {
-    // const categorys = [{
-    //     "TELEFON": [
-    //         {
-    //             "Akıllı Telefon": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon']
-    //         },
-    //         "Tuşlu Telefon",
-    //         "Telsiz Telefon",
-    //         "Kulaklık",
-    //         "Akıllı Saat",
-    //         "PowerBank",
-    //         "Şarj Aleti",
-    //         "Sarj Kablosu",
-    //         "Santral",
-    //         "Sanal Gerçeklik Gözlüğü"
-    //     ]
-    // },
-    // {
-    //     "EV-YAŞAM-BAHÇE": [
-    //         {
-    //             "Beyaz Eşya": [{
-    //                 "Yıkama-Kurutma": ['Bulaşuk Makinesi', "Çamaşır Makinesi", "Kurutma Makinesi"],
-    //                 "Soğutma-Dondurma": ['Buzdolabı', 'Derin Dondurucu', 'Su Sebili'],
-    //                 "Pişirme": ['Ocak', 'Fırın', 'Mini Fırın', "Mikrodalga Fırın", "Davlumbaz ve Aspiratör"]
-    //             }]
-    //         }
-    //     ]
-    // }]
+    const [dropDownType, setDropDownType] = useState(undefined)
     const subNavbarItems = ['TELEFON', 'EV-YAŞAM-BAHÇE', 'BİLGİSAYAR-TABLET']
-    const akilliTelefon = ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon']
     let parse = require('html-react-parser')
-    const telefon = [
-        "Tuşlu Telefon",
-        "Telsiz Telefon",
-        "Kulaklık",
-        "Akıllı Saat",
-        "PowerBank",
-        "Şarj Aleti",
-        "Sarj Kablosu",
-        "Santral",
-        "Sanal Gerçeklik Gözlüğü"
+    const basliklar = [
+        [
+            { "header": "Akıllı Telefon", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
+            { "header": "Telsiz Telefon", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
+            { "header": "Kulaklık", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
+            { "header": "Akıllı Saat", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] }
+        ],
+        [
+            { "header": "Beyaz Eşya", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
+            { "header": "Yapı/Bahçe", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
+            { "header": "Mutfak Aletleri", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
+            { "header": "Ev Gereçleri", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] }
+        ],
+        [
+            { "header": "Akıllı Telefon", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
+            { "header": "Telsiz Telefon", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
+            { "header": "Kulaklık", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
+            { "header": "Akıllı Saat", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] }
+        ]
     ]
     const svgs = [
         `<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -150,29 +132,39 @@ function SubNavbar() {
                     c0.391-0.391,0.391-1.023,0-1.414S29.684,14.902,29.293,15.293z"/></g></svg>
                     `
     ]
-    // console.log(categorys)
+    useEffect(() => {
+        if (dropDownType === undefined) return
+        // console.log(dropDownType)
+    }, [dropDownType])
+
+    const showDropDown = (value) => {
+        setDropDownType(value)
+        // console.log(dropDownType)
+    }
     return (
         <div className='subNavbar'>
             {subNavbarItems.map((e, i) => (
-                <div key={i} className='subNavbarItems p-2'>
+                <div key={i} className='subNavbarItems p-2' onMouseEnter={() => showDropDown(i)} onMouseLeave={() => setDropDownType(undefined)} >
                     <p>{e}</p>
                 </div>
-            ))}
-            <div className='subNavbarDropDown p-2'>
+            ))
+            }
+            {dropDownType !== undefined ? <div className='subNavbarDropDown p-2'>
                 <div className='container'>
+                    {/* {dropDownType} */}
                     <div className='row justify-content-center'>
-                        {[...Array(4)].map((e, i) => (
-                            <div key={i} className='col-3 d-flex flex-column justify-content-center'>
+                        {basliklar[dropDownType].map((e, i) => (
+                            <div key={i} className='col-4 py-2 col-md-3 d-flex flex-column justify-content-center'>
                                 <div className='subNavbarDropDownItems d-flex align-items-center'>
                                     <div>
                                         {parse(String(svgs[i]))}
                                     </div>
                                     <div className='ms-1' style={{ fontSize: "14px", fontWeight: "500" }}>
-                                        {telefon[i]}
+                                        {e.header}
                                     </div>
                                 </div>
                                 <div className='ms-4'>
-                                    {akilliTelefon.map((e1, i1) => (
+                                    {e.subheaders.map((e1, i1) => (
                                         <p key={i1} className='ms-1' style={{ fontSize: "13px" }}>- {e1}</p>
                                     ))}
                                 </div>
@@ -180,8 +172,8 @@ function SubNavbar() {
                         ))}
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> : ''}
+        </div >
     )
 }
 
