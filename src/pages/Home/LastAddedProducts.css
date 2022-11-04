@@ -4,17 +4,22 @@
 
 .lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem {
     background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 2px 0px;
     display: flex;
 }
 
 .lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem .productImage img {
-    height: 100px;
+    height: 110px;
 }
 
-.lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem .productSpecs {}
+.lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem .productSpecs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-.lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem .productSpecs .header {
+.lastAddedProducts .lastAddedProductsItems .lastAddedProductsItem .productSpecs p {
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
 }
