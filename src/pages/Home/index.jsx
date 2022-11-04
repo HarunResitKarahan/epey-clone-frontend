@@ -2,6 +2,7 @@ import './style.css';
 import Navbar from '../../components/Navbar';
 import Carousel from './Carousel';
 import FeaturedNews from './FeaturedNews';
+import LastAddedProducts from './LastAddedProducts'
 // import { Link } from 'react-router-dom';
 
 export function HomePage() {
@@ -12,6 +13,7 @@ export function HomePage() {
         <Carousel></Carousel>
         <FeaturedNews></FeaturedNews>
       </div>
+      <LastAddedProducts></LastAddedProducts>
     </div>
   );
 }
