@@ -4,8 +4,11 @@ import productImage from '../../assets/images/b_philips-xc8049-01-1.webp'
 
 function LastAddedProducts() {
     return (
-        <div className='lastAddedProducts p-2 py-1 mt-4 border'>
-            <h5 className='py-2'>Son Eklenen Ürünler</h5>
+        <div className='lastAddedProducts p-2 py-1 mt-4 rounded'>
+            <div className='d-flex align-items-center py-2 mb-2'>
+                <h5 className='m-0'>Son Eklenen Ürünler</h5>
+                <span className='ms-auto' style={{ cursor: "pointer", color: "#d96140", fontWeight: "500" }}>Tümü ❯</span>
+            </div>
             <div className='row'>
                 {[...Array(6)].map((e, i) => (
                     <div key={i} className='lastAddedProductsItems col-sm-4 mb-2 rounded' >
