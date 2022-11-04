@@ -7,6 +7,11 @@
   text-decoration: none !important;
 }
 
+.nav-link .App-link:hover {
+  color: black !important;
+  text-decoration: none !important;
+}
+
 * p {
   margin: 0 !important;
 }

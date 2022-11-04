@@ -1,10 +1,16 @@
 import React from 'react'
 import logo from '../assets/images/logo.webp'
+import { useHistory } from "react-router-dom";
 // import { Link } from 'react-router-dom';
 import './Navbar.css'
 import SubNavbar from './SubNavbar'
 
 function Navbar() {
+    let navigate = useHistory();
+    const routeChange = () => {
+        let path = `UyeGirisi`;
+        navigate.push(path);
+    }
     return (
         <>
             <nav className="navbar navbar-expand-sm navbar-light py-0">
@@ -18,7 +24,7 @@ function Navbar() {
                             </svg>
                         </div>
                     </div>
-                    <div className='SignLogin ms-2 p-1'>
+                    <div className='SignLogin ms-2 p-1' onClick={routeChange}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#d96140" className="bi bi-person-fill" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                         </svg>
