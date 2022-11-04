@@ -2,6 +2,7 @@ import React from 'react'
 import logo from '../assets/images/logo.webp'
 // import { Link } from 'react-router-dom';
 import './Navbar.css'
+import SubNavbar from './SubNavbar'
 
 function Navbar() {
     // const categorys = [{
@@ -61,17 +62,7 @@ function Navbar() {
                     </div>
                 </div>
             </nav>
-            <div className='subNavbar'>
-                <div className='subNavbarItems p-2'>
-                    <p>TELEFON</p>
-                </div>
-                <div className='subNavbarItems p-2'>
-                    <p>EV-YAŞAM-BAHÇE</p>
-                </div>
-                <div className='subNavbarItems p-2'>
-                    <p>BİLGİSAYAR-TABLET</p>
-                </div>
-            </div>
+            <SubNavbar></SubNavbar>
         </>
     )
 }
