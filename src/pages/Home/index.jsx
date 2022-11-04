@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar';
 import Carousel from './Carousel';
 import FeaturedNews from './FeaturedNews';
 import LastAddedProducts from './LastAddedProducts'
+import PopulerProducts from './PopulerProducts';
 // import { Link } from 'react-router-dom';
 
 export function HomePage() {
@@ -14,6 +15,7 @@ export function HomePage() {
         <FeaturedNews></FeaturedNews>
       </div>
       <LastAddedProducts></LastAddedProducts>
+      <PopulerProducts></PopulerProducts>
     </div>
   );
 }
