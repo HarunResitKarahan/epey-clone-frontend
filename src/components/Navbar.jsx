@@ -4,33 +4,33 @@ import logo from '../assets/images/logo.webp'
 import './Navbar.css'
 
 function Navbar() {
-    const categorys = [{
-        "TELEFON": [
-            {
-                "Akıllı Telefon": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon']
-            },
-            "Tuşlu Telefon",
-            "Telsiz Telefon",
-            "Kulaklık",
-            "Akıllı Saat",
-            "PowerBank",
-            "Şarj Aleti",
-            "Sarj Kablosu",
-            "Santral",
-            "Sanal Gerçeklik Gözlüğü"
-        ]
-    },
-    {
-        "EV-YAŞAM-BAHÇE": [
-            {
-                "Beyaz Eşya": [{
-                    "Yıkama-Kurutma": ['Bulaşuk Makinesi', "Çamaşır Makinesi", "Kurutma Makinesi"],
-                    "Soğutma-Dondurma": ['Buzdolabı', 'Derin Dondurucu', 'Su Sebili'],
-                    "Pişirme": ['Ocak', 'Fırın', 'Mini Fırın', "Mikrodalga Fırın", "Davlumbaz ve Aspiratör"]
-                }]
-            }
-        ]
-    }]
+    // const categorys = [{
+    //     "TELEFON": [
+    //         {
+    //             "Akıllı Telefon": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon']
+    //         },
+    //         "Tuşlu Telefon",
+    //         "Telsiz Telefon",
+    //         "Kulaklık",
+    //         "Akıllı Saat",
+    //         "PowerBank",
+    //         "Şarj Aleti",
+    //         "Sarj Kablosu",
+    //         "Santral",
+    //         "Sanal Gerçeklik Gözlüğü"
+    //     ]
+    // },
+    // {
+    //     "EV-YAŞAM-BAHÇE": [
+    //         {
+    //             "Beyaz Eşya": [{
+    //                 "Yıkama-Kurutma": ['Bulaşuk Makinesi', "Çamaşır Makinesi", "Kurutma Makinesi"],
+    //                 "Soğutma-Dondurma": ['Buzdolabı', 'Derin Dondurucu', 'Su Sebili'],
+    //                 "Pişirme": ['Ocak', 'Fırın', 'Mini Fırın', "Mikrodalga Fırın", "Davlumbaz ve Aspiratör"]
+    //             }]
+    //         }
+    //     ]
+    // }]
     // console.log(categorys)
     return (
         <>

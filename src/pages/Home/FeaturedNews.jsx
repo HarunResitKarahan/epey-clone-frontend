@@ -1,4 +1,5 @@
 import React from 'react'
+import './FeaturedNews.css'
 
 function FeaturedNews() {
     return (
