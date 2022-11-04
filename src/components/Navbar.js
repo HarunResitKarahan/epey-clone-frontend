@@ -65,9 +65,12 @@ function Navbar() {
                     </div>
                 </div>
             </nav>
-            <div className='subNavbar p-2'>
-                <div className='subNavbarItems'>
+            <div className='subNavbar'>
+                <div className='subNavbarItems p-2'>
                     <p>TELEFON</p>
+                </div>
+                <div className='subNavbarItems p-2'>
+                    <p>EV-YAŞAM-BAHÇE</p>
                 </div>
             </div>
         </>
