@@ -6,16 +6,19 @@ import './Navbar.css'
 import SubNavbar from './SubNavbar'
 
 function Navbar() {
-    let navigate = useHistory();
+    // let navigate = useHistory();
+    let history = useHistory();
     const routeChange = () => {
-        let path = `UyeGirisi`;
-        navigate.push(path);
+        history.push(`UyeGirisi`);
+    }
+    const routeHomeChange = () => {
+        history.push(``);
     }
     return (
         <>
             <nav className="navbar navbar-expand-sm navbar-light py-0">
                 <div className="container-fluid py-3">
-                    <img className="img-fluid" style={{ height: "40px" }} src={logo} alt="" />
+                    <img className="img-fluid" style={{ height: "40px", cursor: "pointer" }} src={logo} alt="" onClick={routeHomeChange} />
                     <div className='searchBox d-none d-sm-flex ms-3 w-100'>
                         <input type="text" className='w-100 p-2' placeholder='sitede ara' />
                         <div className='searchIcon'>
