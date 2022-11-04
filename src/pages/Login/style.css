@@ -25,3 +25,11 @@
     background-color: #d96140;
     color: white;
 }
+
+.Login {
+    width: 100%;
+}
+
+.Login input {
+    width: 100%;
+}
