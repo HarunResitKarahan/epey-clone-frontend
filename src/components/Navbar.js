@@ -63,9 +63,7 @@ function Navbar() {
                 </div>
             </nav>
             <div className='subNavbar p-2'>
-                <div>
-
-                </div>
+                {categorys.map((item, index) => (console.log(item)))}
             </div>
         </>
     )
