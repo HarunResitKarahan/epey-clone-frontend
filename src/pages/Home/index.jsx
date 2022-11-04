@@ -10,7 +10,7 @@ import Footer from '../../components/Footer';
 export function HomePage() {
   return (
     <div className="App">
-      <div className='container'>
+      <div className='container mb-3'>
         <Navbar></Navbar>
         <div className='row mt-1'>
           <Carousel></Carousel>

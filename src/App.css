@@ -1,5 +1,8 @@
 .App {
   box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .nav-link .App-link {
