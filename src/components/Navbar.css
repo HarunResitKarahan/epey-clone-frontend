@@ -1,0 +1,54 @@
+.searchBox {
+    border: 2px solid #d96140;
+    border-radius: 5px;
+    display: flex;
+}
+
+.searchBox input {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.searchBox .searchIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    min-width: 8%;
+    margin: 1px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #d96140;
+}
+
+.searchBox input:focus {
+    border: none;
+}
+
+.SignLogin {
+    border: 2px solid #d96140;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    min-width: fit-content;
+}
+
+.SignLogin:hover p {
+    color: #d96140;
+}
+
+.SignLogin p:first-child {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.SignLogin p:last-child {
+    font-size: 12px;
+    font-weight: 400;
+}
