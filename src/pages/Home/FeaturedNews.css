@@ -16,9 +16,9 @@
 .featuredNews .featuredNewsList .featuredNewsItems .featuredNewsItemsContent {
     background-color: #f8f4e0 !important;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* .featuredNews .featuredNewsList .featuredNewsItems .featuredNewsItemsContent:hover {
-    background-color: #d96140;
-    color: white;
-} */
+.featuredNews .featuredNewsList .featuredNewsItems .featuredNewsItemsContent:hover {
+    background-color: #e5debc !important;
+}
