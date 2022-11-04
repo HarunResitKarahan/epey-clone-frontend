@@ -8,7 +8,7 @@ import image5 from '../../assets/images/robot-supurge-50.webp'
 
 export default function Carousel() {
     return (
-        <div className='carousel col-sm-8'>
+        <div className='carousel col-sm-8 pe-1'>
             <div className='carouselMainImage border mb-1'>
                 <img className='img-fluid' src={image1} alt="" />
             </div>
