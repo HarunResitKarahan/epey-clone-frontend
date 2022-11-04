@@ -34,7 +34,7 @@ function SubNavbar() {
     return (
         <div className='subNavbar'>
             {subNavbarItems.map((e, i) => (
-                <div className='subNavbarItems p-2'>
+                <div key={i} className='subNavbarItems p-2'>
                     <p>{e}</p>
                 </div>
             ))}
