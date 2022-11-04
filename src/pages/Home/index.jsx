@@ -9,14 +9,16 @@ import Footer from '../../components/Footer';
 
 export function HomePage() {
   return (
-    <div className="App container">
-      <Navbar></Navbar>
-      <div className='row mt-1'>
-        <Carousel></Carousel>
-        <FeaturedNews></FeaturedNews>
+    <div className="App">
+      <div className='container'>
+        <Navbar></Navbar>
+        <div className='row mt-1'>
+          <Carousel></Carousel>
+          <FeaturedNews></FeaturedNews>
+        </div>
+        <LastAddedProducts></LastAddedProducts>
+        <PopulerProducts></PopulerProducts>
       </div>
-      <LastAddedProducts></LastAddedProducts>
-      <PopulerProducts></PopulerProducts>
       <Footer></Footer>
     </div>
   );
