@@ -18,7 +18,9 @@ function Navbar() {
             "Sarj Kablosu",
             "Santral",
             "Sanal Gerçeklik Gözlüğü"
-        ],
+        ]
+    },
+    {
         "EV-YAŞAM-BAHÇE": [
             {
                 "Beyaz Eşya": [{
@@ -29,6 +31,7 @@ function Navbar() {
             }
         ]
     }]
+    console.log(categorys)
     return (
         <>
             <nav className="navbar navbar-expand-sm navbar-light py-0">
@@ -63,7 +66,9 @@ function Navbar() {
                 </div>
             </nav>
             <div className='subNavbar p-2'>
-                {categorys.map((item, index) => (console.log(item)))}
+                <div className='subNavbarItems'>
+                    <p>TELEFON</p>
+                </div>
             </div>
         </>
     )

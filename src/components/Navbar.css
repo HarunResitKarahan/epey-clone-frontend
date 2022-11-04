@@ -56,4 +56,24 @@
 .subNavbar {
     background-color: #d96140;
     color: white;
+    display: flex;
+}
+
+.subNavbar .subNavbarItems {
+    position: relative;
+}
+
+.subNavbar .subNavbarItems::after {
+    content: "";
+    width: 1px;
+    height: 100%;
+    border: 0 solid white;
+    border-right-width: 2px;
+    position: absolute;
+    right: -10px;
+    top: 0px
+}
+
+.subNavbar .subNavbarItems p {
+    font-weight: 500;
 }
