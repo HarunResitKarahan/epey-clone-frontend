@@ -5,34 +5,6 @@ import './Navbar.css'
 import SubNavbar from './SubNavbar'
 
 function Navbar() {
-    // const categorys = [{
-    //     "TELEFON": [
-    //         {
-    //             "Akıllı Telefon": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon']
-    //         },
-    //         "Tuşlu Telefon",
-    //         "Telsiz Telefon",
-    //         "Kulaklık",
-    //         "Akıllı Saat",
-    //         "PowerBank",
-    //         "Şarj Aleti",
-    //         "Sarj Kablosu",
-    //         "Santral",
-    //         "Sanal Gerçeklik Gözlüğü"
-    //     ]
-    // },
-    // {
-    //     "EV-YAŞAM-BAHÇE": [
-    //         {
-    //             "Beyaz Eşya": [{
-    //                 "Yıkama-Kurutma": ['Bulaşuk Makinesi', "Çamaşır Makinesi", "Kurutma Makinesi"],
-    //                 "Soğutma-Dondurma": ['Buzdolabı', 'Derin Dondurucu', 'Su Sebili'],
-    //                 "Pişirme": ['Ocak', 'Fırın', 'Mini Fırın', "Mikrodalga Fırın", "Davlumbaz ve Aspiratör"]
-    //             }]
-    //         }
-    //     ]
-    // }]
-    // console.log(categorys)
     return (
         <>
             <nav className="navbar navbar-expand-sm navbar-light py-0">
