@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './SubNavbar.css'
+import { useHistory } from "react-router-dom";
 
 function SubNavbar() {
     const [dropDownType, setDropDownType] = useState(undefined)
@@ -132,11 +133,15 @@ function SubNavbar() {
             { "header": "Depolama", "subheaders": ['SSD Disk', 'Sabit Disk', 'Taşınabilir Disk', 'USB Bellek'] }
         ]
     ]
-
-    useEffect(() => {
-        if (dropDownType === undefined) return
-        // console.log(dropDownType)
-    }, [dropDownType])
+    let history = useHistory();
+    const routeChange = (data) => {
+        if (data === undefined) return
+        console.log(data)
+        history.push({
+            pathname: '/Liste',
+            state: { category: data }
+        });
+    }
 
     const showDropDown = (value) => {
         const subNavbarItems = document.querySelectorAll('.subNavbarItems');
@@ -177,7 +182,7 @@ function SubNavbar() {
                         <div className='row justify-content-center'>
                             {basliklar[dropDownType].map((e, i) => (
                                 <div key={i} className='col-4 py-2 col-md-3 d-flex flex-column'>
-                                    <div className='subNavbarDropDownItems d-flex align-items-center'>
+                                    <div className='subNavbarDropDownItems d-flex align-items-center' onClick={() => routeChange(e.header)}>
                                         <div>
                                             {e.svgs !== undefined ? parse(String(e.svgs)) : ''}
                                         </div>
