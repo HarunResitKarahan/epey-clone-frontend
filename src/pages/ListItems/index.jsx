@@ -1,6 +1,8 @@
 import React from 'react'
 import Footer from '../../components/Footer'
 import Navbar from '../../components/Navbar'
+import FilterMenu from './FilterMenu'
+import ListedItems from './ListedItems'
 import './style.css'
 
 function ListItems(props) {
@@ -8,7 +10,10 @@ function ListItems(props) {
         <div className="App">
             <div className='container'>
                 <Navbar></Navbar>
-                -{props.location.state.category}
+                <div className='row'>
+                    <FilterMenu></FilterMenu>
+                    <ListedItems></ListedItems>
+                </div>
             </div>
             <Footer></Footer>
         </div>
