@@ -8,7 +8,7 @@ function ListItems(props) {
         <div className="App">
             <div className='container'>
                 <Navbar></Navbar>
-                {props.category}
+                -{props.location.state.category}
             </div>
             <Footer></Footer>
         </div>
