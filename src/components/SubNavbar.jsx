@@ -5,27 +5,7 @@ function SubNavbar() {
     const [dropDownType, setDropDownType] = useState(undefined)
     const subNavbarItems = ['TELEFON', 'EV-YAŞAM-BAHÇE', 'BİLGİSAYAR-TABLET']
     let parse = require('html-react-parser')
-    const basliklar = [
-        [
-            { "header": "Akıllı Telefon", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
-            { "header": "Telsiz", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
-            { "header": "Kulaklık", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
-            { "header": "Akıllı Saat", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] }
-        ],
-        [
-            { "header": "Beyaz Eşya", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
-            { "header": "Yapı/Bahçe", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
-            { "header": "Mutfak Aletleri", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
-            { "header": "Ev Gereçleri", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] }
-        ],
-        [
-            { "header": "Akıllı Telefon", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
-            { "header": "Telsiz Telefon", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
-            { "header": "Kulaklık", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
-            { "header": "Akıllı Saat", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] }
-        ]
-    ]
-    const svgs = [
+    const telefonSvgs = [
         `<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
             width="30" height="30" viewBox="0 0 706.000000 1280.000000"
             preserveAspectRatio="xMidYMid meet">
@@ -132,6 +112,27 @@ function SubNavbar() {
                     c0.391-0.391,0.391-1.023,0-1.414S29.684,14.902,29.293,15.293z"/></g></svg>
                     `
     ]
+    const basliklar = [
+        [
+            { "header": "Akıllı Telefon", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'], "svgs": telefonSvgs[0] },
+            { "header": "Telsiz", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'], "svgs": telefonSvgs[1] },
+            { "header": "Kulaklık", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'], "svgs": telefonSvgs[2] },
+            { "header": "Akıllı Saat", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'], "svgs": telefonSvgs[3] }
+        ],
+        [
+            { "header": "Beyaz Eşya", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
+            { "header": "Yapı/Bahçe", "subheaders": ['Batarya', 'Testere', 'Jeneratör', 'Mangal'] },
+            { "header": "Mutfak Aletleri", "subheaders": ['Pişiriciler', 'Su Arıtma Cihazı', 'Kahvaltı Takımı', 'Kahve Makinesi'] },
+            { "header": "Ev Gereçleri", "subheaders": ['Robot Süpürge', 'Çalışma Koltuğu', 'Valiz', 'Yatak'] }
+        ],
+        [
+            { "header": "Bilgisayarlar", "subheaders": ['Dizüstü Bilgisayar', 'Masaüstü Bilgisayar', 'Tablet', 'Termal Macun'] },
+            { "header": "Çevre Bileşenleri", "subheaders": ['Monitör', 'Anakart', 'İşlemci', 'Ekran Kartı'] },
+            { "header": "Model ve Ağ", "subheaders": ['Modem', 'Router', 'Menzil Genişletici', 'Kablosuz Adaptör'] },
+            { "header": "Depolama", "subheaders": ['SSD Disk', 'Sabit Disk', 'Taşınabilir Disk', 'USB Bellek'] }
+        ]
+    ]
+
     useEffect(() => {
         if (dropDownType === undefined) return
         // console.log(dropDownType)
@@ -178,7 +179,7 @@ function SubNavbar() {
                                 <div key={i} className='col-4 py-2 col-md-3 d-flex flex-column justify-content-center'>
                                     <div className='subNavbarDropDownItems d-flex align-items-center'>
                                         <div>
-                                            {parse(String(svgs[i]))}
+                                            {e.svgs !== undefined ? parse(String(e.svgs)) : ''}
                                         </div>
                                         <div className='ms-1' style={{ fontSize: "14px", fontWeight: "500" }}>
                                             {e.header}
