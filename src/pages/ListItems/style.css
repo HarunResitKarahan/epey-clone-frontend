@@ -1,0 +1,21 @@
+.filterMenu div {
+    font-size: 14px;
+    background-color: #f8f4e0;
+}
+
+.filterMenu .filterSearch {
+    position: relative;
+}
+
+.filterMenu .filterSearch input {
+    width: 100%;
+    border: 1px solid rgb(211, 211, 211);
+    font-size: 12px;
+}
+
+.filterMenu .filterSearch .searchIcon {
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    top: 6px;
+    right: 6px;
+}

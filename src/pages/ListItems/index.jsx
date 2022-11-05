@@ -10,7 +10,7 @@ function ListItems(props) {
         <div className="App">
             <div className='container'>
                 <Navbar></Navbar>
-                <div className='row'>
+                <div className='row mt-2'>
                     <FilterMenu></FilterMenu>
                     <ListedItems></ListedItems>
                 </div>

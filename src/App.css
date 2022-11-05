@@ -5,6 +5,10 @@
   flex-direction: column;
 }
 
+input {
+  outline: none;
+}
+
 .nav-link .App-link {
   color: black !important;
   text-decoration: none !important;
