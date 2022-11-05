@@ -115,9 +115,9 @@ function SubNavbar() {
     const basliklar = [
         [
             { "header": "Akıllı Telefon", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'], "svgs": telefonSvgs[0] },
-            { "header": "Telsiz", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'], "svgs": telefonSvgs[1] },
-            { "header": "Kulaklık", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'], "svgs": telefonSvgs[2] },
-            { "header": "Akıllı Saat", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'], "svgs": telefonSvgs[3] }
+            { "header": "Telsiz", "subheaders": [], "svgs": telefonSvgs[1] },
+            { "header": "Kulaklık", "subheaders": [], "svgs": telefonSvgs[2] },
+            { "header": "Akıllı Saat", "subheaders": [], "svgs": telefonSvgs[3] }
         ],
         [
             { "header": "Beyaz Eşya", "subheaders": ['Xiaomi Telefon', 'Huawei Telefon', 'Samsung Telefon', 'iPhone Telefon'] },
@@ -176,7 +176,7 @@ function SubNavbar() {
                         {/* {dropDownType} */}
                         <div className='row justify-content-center'>
                             {basliklar[dropDownType].map((e, i) => (
-                                <div key={i} className='col-4 py-2 col-md-3 d-flex flex-column justify-content-center'>
+                                <div key={i} className='col-4 py-2 col-md-3 d-flex flex-column'>
                                     <div className='subNavbarDropDownItems d-flex align-items-center'>
                                         <div>
                                             {e.svgs !== undefined ? parse(String(e.svgs)) : ''}
