@@ -3,12 +3,12 @@ import Footer from '../../components/Footer'
 import Navbar from '../../components/Navbar'
 import './style.css'
 
-function ListItems(category) {
+function ListItems(props) {
     return (
         <div className="App">
             <div className='container'>
                 <Navbar></Navbar>
-                {category}
+                {props.category}
             </div>
             <Footer></Footer>
         </div>

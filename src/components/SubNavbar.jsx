@@ -136,7 +136,6 @@ function SubNavbar() {
     let history = useHistory();
     const routeChange = (data) => {
         if (data === undefined) return
-        console.log(data)
         history.push({
             pathname: '/Liste',
             state: { category: data }
