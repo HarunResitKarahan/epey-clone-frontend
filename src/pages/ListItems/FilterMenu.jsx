@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
 function FilterMenu() {
-    const [rangeInputMinValue, setRangeInputMinValue] = useState(0)
-    const [rangeInputMaxValue, setRangeInputMaxValue] = useState(10000)
+    const [rangeInputMinValue, setRangeInputMinValue] = useState('')
+    const [rangeInputMaxValue, setRangeInputMaxValue] = useState('')
     return (
         <div className='filterMenu col-sm-4 col-lg-3'>
             <div className='filters border p-2'>
@@ -32,8 +32,8 @@ function FilterMenu() {
                             <div className="price-input">
                                 <div className="field">
                                     {/* <span>En Düşük</span> */}
-                                    <input type="number" className="input-min" placeholder={rangeInputMinValue} min={rangeInputMinValue} max={rangeInputMaxValue - 1} value={rangeInputMinValue} onChange={(e) => {
-                                        if (rangeInputMaxValue > Number(e.target.value)) {
+                                    <input type="number" className="input-min" placeholder={0} value={rangeInputMinValue} onChange={(e) => {
+                                        if (rangeInputMaxValue > Number(e.target.value) || rangeInputMaxValue === '' || rangeInputMinValue === '') {
                                             setRangeInputMinValue(Number(e.target.value))
                                         } else {
                                             setRangeInputMinValue(rangeInputMaxValue - 1)
@@ -43,9 +43,13 @@ function FilterMenu() {
                                 <div className="separator">-</div>
                                 <div className="field">
                                     {/* <span>En Yüksek</span> */}
-                                    <input type="number" className="input-max" placeholder={rangeInputMaxValue} min={rangeInputMinValue} max={rangeInputMaxValue} value={rangeInputMaxValue} onChange={(e) => {
-                                        if (Number(e.target.value) > rangeInputMinValue) {
+                                    <input type="number" className="input-max" placeholder={10000} value={rangeInputMaxValue} onChange={(e) => {
+                                        console.log(e.key)
+                                        if (Number(e.target.value) > rangeInputMinValue || rangeInputMinValue === '') {
                                             setRangeInputMaxValue(Number(e.target.value))
+                                        } else if (e.key === 'Backspace') {
+                                            setRangeInputMinValue(rangeInputMaxValue - 1)
+                                            setRangeInputMaxValue(rangeInputMinValue + 1)
                                         } else {
                                             setRangeInputMaxValue(rangeInputMinValue + 1)
                                         }
