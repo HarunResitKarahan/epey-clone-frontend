@@ -7,10 +7,10 @@
     font-size: 18px;
 }
 
-.LoginButton:hover {
+/* .LoginButton:hover {
     background-color: #fff;
     color: black;
-}
+} */
 
 .signInButton {
     cursor: pointer;
@@ -21,10 +21,10 @@
     font-size: 18px;
 }
 
-.signInButton:hover {
+/* .signInButton:hover {
     background-color: #d96140;
     color: white;
-}
+} */
 
 .Login {
     width: 100%;

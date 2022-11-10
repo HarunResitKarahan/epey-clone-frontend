@@ -1,52 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 
 function FilterMenu() {
-    // const [rangeValue, setRangeInput] = useState(0)
-    useEffect(() => {
-        const rangeInput = document.querySelectorAll(".range-input input"),
-            priceInput = document.querySelectorAll(".price-input input"),
-            range = document.querySelector(".slider .progress");
-        let priceGap = 1000;
-
-        priceInput.forEach(input => {
-            input.addEventListener("input", e => {
-                let minPrice = parseInt(priceInput[0].value),
-                    maxPrice = parseInt(priceInput[1].value);
-
-                if ((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max) {
-                    if (e.target.className === "input-min") {
-                        rangeInput[0].value = minPrice;
-                        range.style.left = ((minPrice / rangeInput[0].max) * 100) + "%";
-                    } else {
-                        rangeInput[1].value = maxPrice;
-                        range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
-                    }
-                }
-            });
-        });
-
-        rangeInput.forEach(input => {
-            input.addEventListener("input", e => {
-                let minVal = parseInt(rangeInput[0].value),
-                    maxVal = parseInt(rangeInput[1].value);
-
-                if ((maxVal - minVal) < priceGap) {
-                    if (e.target.className === "range-min") {
-                        rangeInput[0].value = maxVal - priceGap
-                    } else {
-                        rangeInput[1].value = minVal + priceGap;
-                    }
-                } else {
-                    priceInput[0].value = minVal;
-                    priceInput[1].value = maxVal;
-                    range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
-                    range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
-                }
-            });
-        });
-
-    }, [])
-
+    const [rangeInputMinValue, setRangeInputMinValue] = useState(0)
+    const [rangeInputMaxValue, setRangeInputMaxValue] = useState(10000)
     return (
         <div className='filterMenu col-sm-4 col-lg-3'>
             <div className='filters border p-2'>
@@ -72,25 +28,37 @@ function FilterMenu() {
                 <div className='filterPriceBetween'>
                     <h6 className='mt-2'>Fiyat Aralığı</h6>
                     <div className='filterContent p-2'>
-                        <div className="wrapper p-2">
+                        <div className="p-2">
                             <div className="price-input">
                                 <div className="field">
-                                    <span>Min</span>
-                                    <input type="number" className="input-min" value="2500" />
+                                    {/* <span>En Düşük</span> */}
+                                    <input type="number" className="input-min" placeholder={rangeInputMinValue} min={rangeInputMinValue} max={rangeInputMaxValue - 1} value={rangeInputMinValue} onChange={(e) => {
+                                        if (rangeInputMaxValue > Number(e.target.value)) {
+                                            setRangeInputMinValue(Number(e.target.value))
+                                        } else {
+                                            setRangeInputMinValue(rangeInputMaxValue - 1)
+                                        }
+                                    }} />
                                 </div>
                                 <div className="separator">-</div>
                                 <div className="field">
-                                    <span>Max</span>
-                                    <input type="number" className="input-max" value="7500" />
+                                    {/* <span>En Yüksek</span> */}
+                                    <input type="number" className="input-max" placeholder={rangeInputMaxValue} min={rangeInputMinValue} max={rangeInputMaxValue} value={rangeInputMaxValue} onChange={(e) => {
+                                        if (Number(e.target.value) > rangeInputMinValue) {
+                                            setRangeInputMaxValue(Number(e.target.value))
+                                        } else {
+                                            setRangeInputMaxValue(rangeInputMinValue + 1)
+                                        }
+                                    }} />
                                 </div>
                             </div>
-                            <div className="slider">
+                            {/* <div className="slider mt-4">
                                 <div className="progress"></div>
-                            </div>
-                            <div className="range-input">
-                                <input type="range" className="range-min" min="0" max="10000" value="2500" step="100" />
-                                <input type="range" className="range-max" min="0" max="10000" value="7500" step="100" />
-                            </div>
+                            </div> */}
+                            {/* <div className="range-input">
+                                <input type="range" className="range-min" min={0} max={10000} value={2500} step="100" onChange={() => rangeOnChange()} />
+                                <input type="range" className="range-max" min={0} max={10000} value={7500} step="100" onChange={() => rangeOnChange()} />
+                            </div> */}
                         </div>
                     </div>
                 </div>
