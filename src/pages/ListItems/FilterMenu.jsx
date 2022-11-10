@@ -32,28 +32,29 @@ function FilterMenu() {
                             <div className="price-input">
                                 <div className="field">
                                     {/* <span>En Düşük</span> */}
-                                    <input type="number" className="input-min" placeholder={0} value={rangeInputMinValue} onChange={(e) => {
-                                        if (rangeInputMaxValue > Number(e.target.value) || rangeInputMaxValue === '' || rangeInputMinValue === '') {
-                                            setRangeInputMinValue(Number(e.target.value))
-                                        } else {
-                                            setRangeInputMinValue(rangeInputMaxValue - 1)
-                                        }
-                                    }} />
+                                    <input type="number" className="input-min" placeholder={0} value={rangeInputMinValue}
+                                        onChange={(e) => { if (Number(e.target.value) !== 0) { setRangeInputMinValue(Number(e.target.value)) } else { setRangeInputMinValue('') } }}
+                                        onBlur={(e) => {
+                                            if (rangeInputMaxValue > Number(e.target.value) || rangeInputMaxValue === '' || rangeInputMinValue === '') {
+                                                setRangeInputMinValue(Number(e.target.value))
+                                                // setRangeInputMaxValue(Number(e.target.value) + 100)
+                                            } else {
+                                                setRangeInputMinValue(rangeInputMaxValue)
+                                            }
+                                        }} />
                                 </div>
                                 <div className="separator">-</div>
                                 <div className="field">
                                     {/* <span>En Yüksek</span> */}
-                                    <input type="number" className="input-max" placeholder={10000} value={rangeInputMaxValue} onChange={(e) => {
-                                        console.log(e.key)
-                                        if (Number(e.target.value) > rangeInputMinValue || rangeInputMinValue === '') {
-                                            setRangeInputMaxValue(Number(e.target.value))
-                                        } else if (e.key === 'Backspace') {
-                                            setRangeInputMinValue(rangeInputMaxValue - 1)
-                                            setRangeInputMaxValue(rangeInputMinValue + 1)
-                                        } else {
-                                            setRangeInputMaxValue(rangeInputMinValue + 1)
-                                        }
-                                    }} />
+                                    <input type="number" className="input-max" placeholder={10000} value={rangeInputMaxValue}
+                                        onChange={(e) => { if (Number(e.target.value) !== 0) { setRangeInputMaxValue(Number(e.target.value)) } else { setRangeInputMaxValue('') } }}
+                                        onBlur={(e) => {
+                                            if (Number(e.target.value) > rangeInputMinValue || rangeInputMinValue === '') {
+                                                setRangeInputMaxValue(Number(e.target.value))
+                                            } else {
+                                                setRangeInputMaxValue(rangeInputMinValue + 1)
+                                            }
+                                        }} />
                                 </div>
                             </div>
                             {/* <div className="slider mt-4">
