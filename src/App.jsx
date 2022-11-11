@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, useHistory } from 'react-router-dom';
 import { HomePage } from './pages/Home';
 import { Hakkimizda } from './pages/Hakkımızda';
 import './App.css'
@@ -17,7 +17,7 @@ const App = () => (
       <Route path="/Hakkımızda" exact component={Hakkimizda} />
       <Route path="/UyeGirisi" exact component={Login} />
       <Route path="/Liste" exact component={ListItems} />
-      <Route path="/AdminPanel" exact component={Admin} />
+      <Route path="/AdminPanel" exact component={Admin} history={useHistory()} />
       <Route path="/AdminLogin" exact component={AdminLogin} />
       {/* <Route path="/page2" exact component={PageTwo} /> */}
     </Switch>
