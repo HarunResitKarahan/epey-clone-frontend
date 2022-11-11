@@ -21,7 +21,8 @@
     transition: transform .2s ease;
 }
 
-.logOut:hover {
+.logOut:hover div {
+    transition: transform .2s ease;
     transform: translateX(5px);
 }
 
