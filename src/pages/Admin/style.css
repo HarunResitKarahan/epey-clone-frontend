@@ -1,6 +1,7 @@
 .panelMenu {
     background-color: #d96140;
     height: 100vh;
+    box-shadow: rgba(0, 0, 0, 0.308) 1.95px 0 2.6px;
 }
 
 .panelMenu .logOut {
@@ -45,4 +46,17 @@
     left: 0;
     height: 100%;
     background-color: white;
+}
+
+.panelNavbar {
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: #d96140;
+    box-shadow: rgba(0, 0, 0, 0.308) 0 2px 2.6px;
+}
+
+.panelNavbar .navbarPersonIcon {
+    display: flex;
+    align-items: center;
 }
