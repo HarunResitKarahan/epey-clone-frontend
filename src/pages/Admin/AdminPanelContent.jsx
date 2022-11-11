@@ -15,24 +15,16 @@ function AdminPanelContent(props) {
     const [subCategorys, setSubCategorys] = useState([])
     let parse = require('html-react-parser')
     useEffect(() => {
-        axios.get(apiUrl + 'api/Product')
-            .then(function (response) {
-                setProducts(response.data)
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-
-        axios.get(apiUrl + 'api/SubCategories')
-            .then(function (response) {
-                setSubCategorys(response.data)
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        getProudcts()
+        getSubCategories()
 
     }, [])
     useEffect(() => {
+        getProudcts()
+        getSubCategories()
+
+    }, [showEditPopUp, showDeletePopUp])
+    const getProudcts = () => {
         axios.get(apiUrl + 'api/Product')
             .then(function (response) {
                 setProducts(response.data)
@@ -40,7 +32,8 @@ function AdminPanelContent(props) {
             .catch(function (error) {
                 console.log(error);
             });
-
+    }
+    const getSubCategories = () => {
         axios.get(apiUrl + 'api/SubCategories')
             .then(function (response) {
                 setSubCategorys(response.data)
@@ -48,8 +41,7 @@ function AdminPanelContent(props) {
             .catch(function (error) {
                 console.log(error);
             });
-    }, [showEditPopUp, showDeletePopUp])
-
+    }
 
     const generalCard = [
         {
