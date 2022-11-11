@@ -1,3 +1,31 @@
 .panelMenu {
     background-color: #d96140;
+    height: 100vh;
+}
+
+.panelMenuItem .panelMenuItems {
+    font-weight: 500;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 15px;
+    display: flex;
+    transition: transform 0.2s ease;
+    /* justify-content: center; */
+    align-items: center;
+    /* text-align: center; */
+}
+
+.panelMenuItem .panelMenuItems:hover {
+    transform: translateX(5px);
+}
+
+.panelMenuItem .panelMenuItems::before {
+    content: "";
+    position: absolute;
+    border-radius: 10px;
+    width: 5px;
+    left: 0;
+    height: 100%;
+    background-color: white;
 }

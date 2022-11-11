@@ -17,7 +17,7 @@ function Admin(props) {
         <div className='App'>
             <div className='container-fluid'>
                 <div className='row'>
-                    <div className="col-sm-2 panelMenu">
+                    <div className="col-sm-2 panelMenu px-0">
                         <AdminPanelMenu></AdminPanelMenu>
                     </div>
                     <div className="col-sm-10">
