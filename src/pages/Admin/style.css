@@ -116,7 +116,7 @@
     color: white;
 }
 
-.EditPopUp {
+.PopUp {
     display: flex;
     position: fixed;
     width: 100%;
@@ -126,7 +126,7 @@
     background-color: rgba(0, 0, 0, 0.205);
 }
 
-.EditPopUp .EditPopUpCard {
+.PopUp .PopUpCard {
     margin: auto;
     background-color: white;
 }

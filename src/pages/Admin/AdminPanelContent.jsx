@@ -2,12 +2,14 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import AdminPanelNavbar from './Components/AdminPanelNavbar'
 import CategorySelect from './Components/CategorySelect'
+import DeletePopUp from './Components/DeletePopUp'
 import EditPopUp from './Components/EditPopUp'
 // import Navbar from '../../components/Navbar'
 
 function AdminPanelContent(props) {
     const apiUrl = "http://localhost:8586/"
     const [showEditPopUp, setShowEditPopUp] = useState(false)
+    const [showDeletePopUp, setShowDeletePopUp] = useState(false)
     const [selectedProduct, setSelectedProduct] = useState(0)
     const [products, setProducts] = useState([])
     const [subCategorys, setSubCategorys] = useState([])
@@ -140,7 +142,7 @@ function AdminPanelContent(props) {
                                     <td style={{ width: "140px", whiteSpace: "nowrap" }}>
                                         <div className='productEdit'>
                                             <button id={e.productId} className='btn me-2' onClick={(e) => { setSelectedProduct(e.target.id); setShowEditPopUp(true) }}>Güncelle</button>
-                                            <button id={e.productId} className='btn btn-danger' onClick={(e) => { setSelectedProduct(e.target.id); setShowEditPopUp(true) }}>Sil</button>
+                                            <button id={e.productId} className='btn btn-danger' onClick={(e) => { setSelectedProduct(e.target.id); setShowDeletePopUp(true) }}>Sil</button>
                                         </div>
                                     </td>
                                 </tr>
@@ -161,6 +163,7 @@ function AdminPanelContent(props) {
                 </div>
             </div>
             {showEditPopUp ? <EditPopUp selectedProduct={selectedProduct} setShowEditPopUp={setShowEditPopUp} subCategorys={subCategorys}></EditPopUp> : ''}
+            {showDeletePopUp ? <DeletePopUp selectedProduct={selectedProduct} setShowDeletePopUp={setShowDeletePopUp}></DeletePopUp> : ''}
         </>
     )
 }

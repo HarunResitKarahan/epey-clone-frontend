@@ -22,8 +22,8 @@ function EditPopUp(props) {
             });
     }
     return (
-        <div className='EditPopUp' onMouseDown={(e) => { if (e.target.className === 'EditPopUp') props.setShowEditPopUp(false) }}>
-            <form onSubmit={(e) => { e.preventDefault(); editProduct(e) }} className='EditPopUpCard p-3 rounded'>
+        <div className='PopUp' onMouseDown={(e) => { if (e.target.className === 'PopUp') props.setShowEditPopUp(false) }}>
+            <form onSubmit={(e) => { e.preventDefault(); editProduct(e) }} className='PopUpCard p-3 rounded'>
                 <h5 className='mb-3'>Ürünü Güncelle</h5>
                 <input type="text" className='form-control mb-2' placeholder='Ürün Adı' required />
                 <input type="text" className='form-control mb-2' placeholder='Fiyatı' required />
