@@ -87,38 +87,19 @@ function AdminPanelContent(props) {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td style={{ width: '100px' }}>
-                                    <div className='productEdit'>
-                                        <button className='btn' onClick={(e) => { setSelectedProduct(e.target.id); setShowEditPopUp(true) }}>Güncelle</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td style={{ width: '100px' }}>
-                                    <div className='productEdit'>
-                                        <button className='btn'>Güncelle</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                                <td style={{ width: '100px' }}>
-                                    <div className='productEdit'>
-                                        <button className='btn'>Güncelle</button>
-                                    </div>
-                                </td>
-                            </tr>
+                            {[...Array(7)].map((e, i) => (
+                                <tr>
+                                    <th scope="row">{i + 1}</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td style={{ width: '100px' }}>
+                                        <div className='productEdit'>
+                                            <button id={e} className='btn' onClick={(e) => { setSelectedProduct(e.target.id); setShowEditPopUp(true) }}>Güncelle</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
