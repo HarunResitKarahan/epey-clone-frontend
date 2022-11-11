@@ -6,6 +6,7 @@ import { Hakkimizda } from './pages/Hakkımızda';
 import './App.css'
 import { Login } from './pages/Login';
 import ListItems from './pages/ListItems';
+import Admin from './pages/Admin';
 // import { PageTwo } from './pages/Page2';
 
 const App = () => (
@@ -15,6 +16,7 @@ const App = () => (
       <Route path="/Hakkımızda" exact component={Hakkimizda} />
       <Route path="/UyeGirisi" exact component={Login} />
       <Route path="/Liste" exact component={ListItems} />
+      <Route path="/AdminPanel" exact component={Admin} />
       {/* <Route path="/page2" exact component={PageTwo} /> */}
     </Switch>
   </BrowserRouter>
