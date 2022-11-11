@@ -2,7 +2,7 @@ import React from 'react'
 import AdminPanelNavbar from './Components/AdminPanelNavbar'
 // import Navbar from '../../components/Navbar'
 
-function AdminPanelContent() {
+function AdminPanelContent(props) {
     let parse = require('html-react-parser')
     const generalCard = [
         {
@@ -67,8 +67,11 @@ function AdminPanelContent() {
                         <button type="submit" className="btn btn-success">Ürün Ekle <strong>+</strong></button>
                     </div>
                 </form>
-                <div className='addProduct mt-2 p-3'>
-                    <table className="table rounded">
+                <div className='addProduct flex-column mt-2 p-3'>
+                    <div className='productSearch w-100 my-2 mb-4'>
+                        <input type="text" className="form-control py-2" placeholder="Arama Yapın..." aria-label="ProductSearch" aria-describedby="basic-addon1" />
+                    </div>
+                    <table className="table border rounded">
                         <thead className='table-light'>
                             <tr>
                                 <th scope="col">#</th>
@@ -97,6 +100,19 @@ function AdminPanelContent() {
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                <div>
+                    <div className='logOut p-2' onClick={() => { localStorage.removeItem('token'); props.history.push('AdminLogin') }}>
+                        <div className='me-1'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                            </svg>
+                        </div>
+                        <div>
+                            Çıkış Yap
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import AdminPanelContent from './AdminPanelContent';
-import AdminPanelMenu from './AdminPanelMenu';
+// import AdminPanelMenu from './AdminPanelMenu';
 import './style.css'
 
 function Admin(props) {
@@ -21,7 +21,7 @@ function Admin(props) {
                         <AdminPanelMenu history={props.history}></AdminPanelMenu>
                     </div> */}
                     <div className="col-12 p-0">
-                        <AdminPanelContent></AdminPanelContent>
+                        <AdminPanelContent history={props.history}></AdminPanelContent>
                     </div>
                 </div>
             </div>
