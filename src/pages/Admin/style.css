@@ -106,12 +106,12 @@
     width: fit-content;
 }
 
-.productEdit button {
+.productEdit button:first-child {
     background-color: #46B1C9;
     color: white;
 }
 
-.productEdit button:hover {
+.productEdit button:first-child:hover {
     background-color: #46b1c9ce;
     color: white;
 }

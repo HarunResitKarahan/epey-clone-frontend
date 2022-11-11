@@ -137,9 +137,10 @@ function AdminPanelContent(props) {
                                         ))
                                     }
                                     {/* <td>{subCategorys[e.subCategoryId]}</td> */}
-                                    <td style={{ width: '100px' }}>
+                                    <td style={{ width: "140px", whiteSpace: "nowrap" }}>
                                         <div className='productEdit'>
-                                            <button id={e.productId} className='btn' onClick={(e) => { setSelectedProduct(e.target.id); setShowEditPopUp(true) }}>Güncelle</button>
+                                            <button id={e.productId} className='btn me-2' onClick={(e) => { setSelectedProduct(e.target.id); setShowEditPopUp(true) }}>Güncelle</button>
+                                            <button id={e.productId} className='btn btn-danger' onClick={(e) => { setSelectedProduct(e.target.id); setShowEditPopUp(true) }}>Sil</button>
                                         </div>
                                     </td>
                                 </tr>
