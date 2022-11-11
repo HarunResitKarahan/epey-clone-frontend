@@ -68,3 +68,24 @@
     background-color: #46B1C9;
     min-height: 100%;
 }
+
+.addProduct {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 10px;
+}
+
+.addProduct input {
+    box-shadow: none !important;
+}
+
+.addProduct select {
+    box-shadow: none !important;
+}
+
+.addProduct button[type="submit"] {
+    width: 200px;
+}
