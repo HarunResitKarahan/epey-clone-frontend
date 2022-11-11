@@ -8,6 +8,8 @@ import EditPopUp from './Components/EditPopUp'
 
 function AdminPanelContent(props) {
     const apiUrl = "http://localhost:8586/"
+    const tds = document.querySelectorAll('td')
+    let trs = document.querySelectorAll('tr')
     const [showEditPopUp, setShowEditPopUp] = useState(false)
     const [showDeletePopUp, setShowDeletePopUp] = useState(false)
     const [selectedProduct, setSelectedProduct] = useState(0)
@@ -55,6 +57,33 @@ function AdminPanelContent(props) {
             .catch(function (error) {
                 console.log(error);
             });
+    }
+    const searchTable = (e) => {
+        let eventValue = e.target.value
+        console.log(eventValue)
+        // console.log(trs)
+        if (eventValue !== '') {
+            for (let element of tds) {
+                let elementValue = element.innerText
+                if (element.className !== 'buttons') {
+                    if (elementValue.includes(eventValue)) {
+                        for (let elmnt of trs) {
+                            // console.log(elmnt)
+                            if (element.parentNode !== elmnt && elmnt.className !== 'headers') {
+                                elmnt.style.display = 'none'
+                            } else {
+                                elmnt.style.display = 'table-row'
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            for (let elmnt of trs) {
+                elmnt.style.display = 'table-row'
+            }
+        }
+        // console.log(tds)
     }
 
     const generalCard = [
@@ -119,11 +148,11 @@ function AdminPanelContent(props) {
                 </form>
                 <div className='addProduct flex-column mt-2 p-3'>
                     <div className='productSearch w-100 my-2 mb-4'>
-                        <input type="text" className="form-control py-2" placeholder="Arama Yapın..." aria-label="ProductSearch" aria-describedby="basic-addon1" />
+                        <input type="text" className="form-control py-2" onChange={(e) => searchTable(e)} placeholder="Arama Yapın..." aria-label="ProductSearch" aria-describedby="basic-addon1" />
                     </div>
                     <table className="table border rounded">
                         <thead className='table-light'>
-                            <tr>
+                            <tr className='headers'>
                                 <th scope="col">#</th>
                                 <th scope="col">Ürün Adı</th>
                                 <th scope="col">Fiyat</th>
@@ -145,7 +174,7 @@ function AdminPanelContent(props) {
                                         ))
                                     }
                                     {/* <td>{subCategorys[e.subCategoryId]}</td> */}
-                                    <td style={{ width: "140px", whiteSpace: "nowrap" }}>
+                                    <td className='buttons' style={{ width: "140px", whiteSpace: "nowrap" }}>
                                         <div className='productEdit'>
                                             <button id={e.productId} className='btn me-2' onClick={(e) => { setSelectedProduct(e.target.id); setShowEditPopUp(true) }}>Güncelle</button>
                                             <button id={e.productId} className='btn btn-danger' onClick={(e) => { setSelectedProduct(e.target.id); setShowDeletePopUp(true) }}>Sil</button>
