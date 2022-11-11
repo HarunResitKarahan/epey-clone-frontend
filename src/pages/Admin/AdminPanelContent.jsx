@@ -61,7 +61,7 @@ function AdminPanelContent(props) {
                         </div>
                         <div className='me-2'>
                             <select className="form-select" aria-label="Default select example" required>
-                                <option selected>Kategori Seç</option>
+                                <option defaultValue={"Kategori Seç"}>Kategori Seç</option>
                                 {/* <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option> */}
@@ -88,7 +88,7 @@ function AdminPanelContent(props) {
                         </thead>
                         <tbody>
                             {[...Array(7)].map((e, i) => (
-                                <tr>
+                                <tr key={i}>
                                     <th scope="row">{i + 1}</th>
                                     <td>Mark</td>
                                     <td>Otto</td>
@@ -106,7 +106,7 @@ function AdminPanelContent(props) {
             </div>
             <div className='logOut p-2' onClick={() => { localStorage.removeItem('token'); props.history.push('AdminLogin') }}>
                 <div className='me-1'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" className="bi bi-box-arrow-right" viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
                         <path fillRule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
                     </svg>
