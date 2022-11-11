@@ -48,7 +48,7 @@ function AdminPanelContent(props) {
             .catch(function (error) {
                 console.log(error);
             });
-    }, [showEditPopUp])
+    }, [showEditPopUp, showDeletePopUp])
 
 
     const generalCard = [
