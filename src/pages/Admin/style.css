@@ -14,8 +14,10 @@
     cursor: pointer;
     padding: 12px 12px !important;
     font-weight: 500;
-    background-color: rgb(214, 214, 214);
-    border-radius: 7px;
+    background-color: #46B1C9;
+    color: white;
+    /* border-radius: 7px; */
+    border-top-right-radius: 7px;
     transition: transform .2s ease;
 }
 
