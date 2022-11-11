@@ -1,11 +1,16 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import './style.css'
 
 function AdminLogin() {
     const apiUrl = "http://localhost:8586/"
     const history = useHistory();
+    useEffect(() => {
+        if (localStorage.getItem('token') !== null) {
+            history.push('AdminPanel')
+        }
+    })
 
     const fetchLogin = () => {
         const adminNameValue = document.querySelector('#adminName').value
