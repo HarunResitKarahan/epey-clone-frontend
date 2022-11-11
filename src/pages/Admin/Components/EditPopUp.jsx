@@ -2,7 +2,7 @@ import React from 'react'
 
 function EditPopUp(props) {
     return (
-        <div className='EditPopUp'>
+        <div className='EditPopUp' onMouseDown={(e) => { if (e.target.className === 'EditPopUp') props.setShowEditPopUp(false) }}>
             <form onSubmit={(e) => e.preventDefault()} className='EditPopUpCard p-3 rounded'>
                 <h5 className='mb-3'>Ürünü Güncelle</h5>
                 <input type="text" className='form-control mb-2' placeholder='Ürün Adı' required />
@@ -12,7 +12,7 @@ function EditPopUp(props) {
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                 </select>
-                <button type='submit' className='btn btn-primary w-100 mt-2'>Kaydet</button>
+                <button type='submit' className='btn btn-primary w-100 mt-2'>Güncelle</button>
             </form>
         </div>
     )

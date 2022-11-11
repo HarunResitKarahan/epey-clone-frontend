@@ -115,7 +115,7 @@ function AdminPanelContent(props) {
                     Çıkış Yap
                 </div>
             </div>
-            {showEditPopUp ? <EditPopUp selectedProduct={selectedProduct}></EditPopUp> : ''}
+            {showEditPopUp ? <EditPopUp selectedProduct={selectedProduct} setShowEditPopUp={setShowEditPopUp}></EditPopUp> : ''}
         </>
     )
 }
