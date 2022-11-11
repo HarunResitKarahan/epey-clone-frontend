@@ -1,12 +1,35 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import AdminPanelNavbar from './Components/AdminPanelNavbar'
 import EditPopUp from './Components/EditPopUp'
 // import Navbar from '../../components/Navbar'
 
 function AdminPanelContent(props) {
+    const apiUrl = "http://localhost:8586/"
     const [showEditPopUp, setShowEditPopUp] = useState(false)
     const [selectedProduct, setSelectedProduct] = useState(0)
+    const [products, setProducts] = useState([])
+    const [subCategorys, setSubCategorys] = useState([])
     let parse = require('html-react-parser')
+    useEffect(() => {
+        axios.get(apiUrl + 'api/Product')
+            .then(function (response) {
+                setProducts(response.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        axios.get(apiUrl + 'api/SubCategories')
+            .then(function (response) {
+                setSubCategorys(response.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+    }, [])
+
     const generalCard = [
         {
             title: "Ürün Sayısı",
@@ -87,15 +110,22 @@ function AdminPanelContent(props) {
                             </tr>
                         </thead>
                         <tbody>
-                            {[...Array(7)].map((e, i) => (
+                            {products.map((e, i) => (
                                 <tr key={i}>
                                     <th scope="row">{i + 1}</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+                                    <td>{e.productName}</td>
+                                    <td>{e.productPrice}</td>
+                                    {/* <td></td> */}
+                                    {subCategorys
+                                        .filter(element => element.subCategoryId === e.subCategoryId)
+                                        .map((elmnt, index) => (
+                                            <td key={index}>{elmnt.subCategoryName}</td>
+                                        ))
+                                    }
+                                    {/* <td>{subCategorys[e.subCategoryId]}</td> */}
                                     <td style={{ width: '100px' }}>
                                         <div className='productEdit'>
-                                            <button id={i} className='btn' onClick={(e) => { setSelectedProduct(e.target.id); setShowEditPopUp(true) }}>Güncelle</button>
+                                            <button id={e.productId} className='btn' onClick={(e) => { setSelectedProduct(e.target.id); setShowEditPopUp(true) }}>Güncelle</button>
                                         </div>
                                     </td>
                                 </tr>
