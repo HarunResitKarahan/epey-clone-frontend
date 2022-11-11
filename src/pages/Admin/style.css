@@ -99,7 +99,16 @@
     width: 100%;
 }
 
-
 .productEdit {
     width: fit-content;
+}
+
+.productEdit button {
+    background-color: #46B1C9;
+    color: white;
+}
+
+.productEdit button:hover {
+    background-color: #46b1c9ce;
+    color: white;
 }

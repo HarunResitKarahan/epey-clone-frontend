@@ -91,7 +91,7 @@ function AdminPanelContent(props) {
                                 <td>@mdo</td>
                                 <td style={{ width: '100px' }}>
                                     <div className='productEdit'>
-                                        <button className='btn btn-primary'>Güncelle</button>
+                                        <button className='btn'>Güncelle</button>
                                     </div>
                                 </td>
                             </tr>
@@ -102,7 +102,7 @@ function AdminPanelContent(props) {
                                 <td>@fat</td>
                                 <td style={{ width: '100px' }}>
                                     <div className='productEdit'>
-                                        <button className='btn btn-primary'>Güncelle</button>
+                                        <button className='btn'>Güncelle</button>
                                     </div>
                                 </td>
                             </tr>
@@ -112,7 +112,7 @@ function AdminPanelContent(props) {
                                 <td>@twitter</td>
                                 <td style={{ width: '100px' }}>
                                     <div className='productEdit'>
-                                        <button className='btn btn-primary'>Güncelle</button>
+                                        <button className='btn'>Güncelle</button>
                                     </div>
                                 </td>
                             </tr>
