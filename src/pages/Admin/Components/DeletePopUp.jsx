@@ -12,7 +12,7 @@ function DeletePopUp(props) {
                 </div>
                 <div className='d-flex align-items-center justify-content-end'>
                     <div className='p-2 pe-0'>
-                        <button className='btn btn-success' onClick={(e) => { axios.delete(apiUrl + 'api/Product/' + props.selectedProduct); props.setShowDeletePopUp(false) }}>Evet</button>
+                        <button className='btn btn-success' onClick={async (e) => { await axios.delete(apiUrl + 'api/Product/' + props.selectedProduct); props.setShowDeletePopUp(false) }}>Evet</button>
                     </div>
                     <div className='p-2 pe-0'>
                         <button className='btn btn-danger' onClick={(e) => props.setShowDeletePopUp(false)}>Hayır</button>
