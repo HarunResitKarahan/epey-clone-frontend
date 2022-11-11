@@ -43,6 +43,20 @@ function AdminPanelContent(props) {
             });
     }
 
+    const addProduct = (e) => {
+        axios.post(apiUrl + 'api/Product/', {
+            productName: String(e.target[0].value),
+            productPrice: Number(e.target[1].value),
+            subCategoryId: Number(e.target[2].value)
+        })
+            .then(function (response) {
+                getProudcts()
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
     const generalCard = [
         {
             title: "Ürün Sayısı",
@@ -87,7 +101,7 @@ function AdminPanelContent(props) {
                     ))}
                 </div>
                 <h3 className='my-4 text-secondary'>Ürünler</h3>
-                <form className='addProduct p-3' onSubmit={(e) => e.preventDefault()}>
+                <form className='addProduct p-3' onSubmit={(e) => { e.preventDefault(); addProduct(e) }}>
                     <div className='d-flex mx-auto'>
                         <div className='me-2'>
                             <input type="text" className="form-control" placeholder="Ürün İsmi" aria-label="ProductName" aria-describedby="basic-addon1" required />
