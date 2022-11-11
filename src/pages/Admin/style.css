@@ -3,6 +3,23 @@
     height: 100vh;
 }
 
+.panelMenu .logOut {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 0px !important;
+    width: 100%;
+    font-weight: 500;
+    background-color: white;
+    border-radius: 7px;
+    transition: transform .2s ease;
+}
+
+.panelMenu .logOut:hover {
+    transform: translateY(-5px);
+}
+
 .panelMenuItem .panelMenuItems {
     font-weight: 500;
     color: white;
