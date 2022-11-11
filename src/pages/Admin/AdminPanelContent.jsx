@@ -33,7 +33,7 @@ function AdminPanelContent(props) {
         <>
             <AdminPanelNavbar></AdminPanelNavbar>
             <div className='container'>
-                <h3 className='my-4 text-secondary'>Panel Genel Görünüm</h3>
+                <h3 className='my-4 text-secondary'>Panel Genel Bilgi</h3>
                 <div className='generalCard row'>
                     {generalCard.map((e, i) => (
                         <div key={i} className='generalCards col-md-4 mb-2 m-md-0'>
@@ -49,22 +49,24 @@ function AdminPanelContent(props) {
                 </div>
                 <h3 className='my-4 text-secondary'>Ürünler</h3>
                 <form className='addProduct p-3' onSubmit={(e) => e.preventDefault()}>
-                    <div>
-                        <input type="text" className="form-control" placeholder="Ürün İsmi" aria-label="ProductName" aria-describedby="basic-addon1" required />
-                    </div>
-                    <div>
-                        <input type="number" className="form-control" placeholder="Ürün Fiyatı" aria-label="ProductPrice" aria-describedby="basic-addon1" required />
-                    </div>
-                    <div>
-                        <select className="form-select" aria-label="Default select example" required>
-                            <option selected>Kategori Seç</option>
-                            {/* <option value="1">One</option>
+                    <div className='d-flex mx-auto'>
+                        <div className='me-2'>
+                            <input type="text" className="form-control" placeholder="Ürün İsmi" aria-label="ProductName" aria-describedby="basic-addon1" required />
+                        </div>
+                        <div className='me-2'>
+                            <input type="number" className="form-control" placeholder="Ürün Fiyatı" aria-label="ProductPrice" aria-describedby="basic-addon1" required />
+                        </div>
+                        <div className='me-2'>
+                            <select className="form-select" aria-label="Default select example" required>
+                                <option selected>Kategori Seç</option>
+                                {/* <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option> */}
-                        </select>
-                    </div>
-                    <div>
-                        <button type="submit" className="btn btn-success">Ürün Ekle <strong>+</strong></button>
+                            </select>
+                        </div>
+                        <div>
+                            <button type="submit" className="btn btn-success">Ürün Ekle <strong>+</strong></button>
+                        </div>
                     </div>
                 </form>
                 <div className='addProduct flex-column mt-2 p-3'>
@@ -78,6 +80,7 @@ function AdminPanelContent(props) {
                                 <th scope="col">Ürün Adı</th>
                                 <th scope="col">Fiyat</th>
                                 <th scope="col">Kategori</th>
+                                <th scope="col-1"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -86,33 +89,34 @@ function AdminPanelContent(props) {
                                 <td>Mark</td>
                                 <td>Otto</td>
                                 <td>@mdo</td>
+                                <td>asd</td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
                                 <td>Jacob</td>
                                 <td>Thornton</td>
                                 <td>@fat</td>
+                                <td>asd</td>
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
                                 <td colspan="2">Larry the Bird</td>
                                 <td>@twitter</td>
+                                <td>asd</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div className='logOut p-2' onClick={() => { localStorage.removeItem('token'); props.history.push('AdminLogin') }}>
+                <div className='me-1'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                    </svg>
+                </div>
                 <div>
-                    <div className='logOut p-2' onClick={() => { localStorage.removeItem('token'); props.history.push('AdminLogin') }}>
-                        <div className='me-1'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
-                                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-                            </svg>
-                        </div>
-                        <div>
-                            Çıkış Yap
-                        </div>
-                    </div>
+                    Çıkış Yap
                 </div>
             </div>
         </>
