@@ -98,3 +98,8 @@
 .productSearch input {
     width: 100%;
 }
+
+
+.productEdit {
+    width: fit-content;
+}
