@@ -17,10 +17,10 @@ function Admin(props) {
         <div className='App'>
             <div className='container-fluid'>
                 <div className='row'>
-                    <div className="col-sm-2 panelMenu px-0">
+                    <div className="col-sm-3 col-lg-2 panelMenu px-0">
                         <AdminPanelMenu history={props.history}></AdminPanelMenu>
                     </div>
-                    <div className="col-sm-10">
+                    <div className="col-sm-9 col-lg-10">
                         <AdminPanelContent></AdminPanelContent>
                     </div>
                 </div>
