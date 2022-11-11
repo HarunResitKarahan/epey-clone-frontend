@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AdminPanelNavbar from './Components/AdminPanelNavbar'
+import EditPopUp from './Components/EditPopUp'
 // import Navbar from '../../components/Navbar'
 
 function AdminPanelContent(props) {
+    const [showEditPopUp, setShowEditPopUp] = useState(false)
+    const [selectedProduct, setSelectedProduct] = useState(0)
     let parse = require('html-react-parser')
     const generalCard = [
         {
@@ -91,7 +94,7 @@ function AdminPanelContent(props) {
                                 <td>@mdo</td>
                                 <td style={{ width: '100px' }}>
                                     <div className='productEdit'>
-                                        <button className='btn'>Güncelle</button>
+                                        <button className='btn' onClick={(e) => { setSelectedProduct(e.target.id); setShowEditPopUp(true) }}>Güncelle</button>
                                     </div>
                                 </td>
                             </tr>
@@ -131,6 +134,7 @@ function AdminPanelContent(props) {
                     Çıkış Yap
                 </div>
             </div>
+            {showEditPopUp ? <EditPopUp selectedProduct={selectedProduct}></EditPopUp> : ''}
         </>
     )
 }
