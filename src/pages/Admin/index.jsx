@@ -18,7 +18,7 @@ function Admin(props) {
             <div className='container-fluid'>
                 <div className='row'>
                     <div className="col-sm-2 panelMenu px-0">
-                        <AdminPanelMenu></AdminPanelMenu>
+                        <AdminPanelMenu history={props.history}></AdminPanelMenu>
                     </div>
                     <div className="col-sm-10">
                         <AdminPanelContent></AdminPanelContent>
