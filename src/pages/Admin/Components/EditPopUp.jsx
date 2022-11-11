@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react'
+import CategorySelect from './CategorySelect';
 
 function EditPopUp(props) {
     const apiUrl = "http://localhost:8586/"
@@ -26,11 +27,7 @@ function EditPopUp(props) {
                 <h5 className='mb-3'>Ürünü Güncelle</h5>
                 <input type="text" className='form-control mb-2' placeholder='Ürün Adı' required />
                 <input type="text" className='form-control mb-2' placeholder='Fiyatı' required />
-                <select className="form-select" aria-label="Default select example" required>
-                    {props.subCategorys.map((e, i) => (
-                        <option key={i} value={e.subCategoryId}>{e.subCategoryName}</option>
-                    ))}
-                </select>
+                <CategorySelect subCategorys={props.subCategorys}></CategorySelect>
                 <button type='submit' className='btn btn-primary w-100 mt-2'>Güncelle</button>
             </form>
         </div>

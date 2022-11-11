@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import AdminPanelNavbar from './Components/AdminPanelNavbar'
+import CategorySelect from './Components/CategorySelect'
 import EditPopUp from './Components/EditPopUp'
 // import Navbar from '../../components/Navbar'
 
@@ -101,12 +102,7 @@ function AdminPanelContent(props) {
                             <input type="number" className="form-control" placeholder="Ürün Fiyatı" aria-label="ProductPrice" aria-describedby="basic-addon1" required />
                         </div>
                         <div className='me-2'>
-                            <select className="form-select" aria-label="Default select example" required>
-                                <option defaultValue={"Kategori Seç"}>Kategori Seç</option>
-                                {/* <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option> */}
-                            </select>
+                            <CategorySelect subCategorys={subCategorys}></CategorySelect>
                         </div>
                         <div>
                             <button type="submit" className="btn btn-success">Ürün Ekle <strong>+</strong></button>
