@@ -29,6 +29,24 @@ function AdminPanelContent(props) {
             });
 
     }, [])
+    useEffect(() => {
+        axios.get(apiUrl + 'api/Product')
+            .then(function (response) {
+                setProducts(response.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        axios.get(apiUrl + 'api/SubCategories')
+            .then(function (response) {
+                setSubCategorys(response.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, [showEditPopUp])
+
 
     const generalCard = [
         {
