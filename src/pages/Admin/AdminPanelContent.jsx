@@ -155,7 +155,7 @@ function AdminPanelContent(props) {
                 </div>
             </div>
             {showEditPopUp ? <EditPopUp selectedProduct={selectedProduct} setShowEditPopUp={setShowEditPopUp} subCategorys={subCategorys}></EditPopUp> : ''}
-            {showDeletePopUp ? <DeletePopUp selectedProduct={selectedProduct} setShowDeletePopUp={setShowDeletePopUp} getProudcts={getProudcts}></DeletePopUp> : ''}
+            {showDeletePopUp ? <DeletePopUp selectedProduct={selectedProduct} setShowDeletePopUp={setShowDeletePopUp}></DeletePopUp> : ''}
         </>
     )
 }
