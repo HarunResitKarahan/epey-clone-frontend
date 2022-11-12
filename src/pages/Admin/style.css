@@ -130,3 +130,10 @@
     margin: auto;
     background-color: white;
 }
+
+#choose-file {
+    position: absolute;
+    left: 0 !important;
+    top: 0 !important;
+    z-index: -999 !important;
+}

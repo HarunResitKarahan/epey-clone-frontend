@@ -56,17 +56,19 @@ function AdminPanelContent(props) {
     }
 
     const addProduct = (e) => {
-        axios.post(apiUrl + 'api/Product/', {
-            productName: String(e.target[0].value),
-            productPrice: Number(e.target[1].value),
-            subCategoryId: Number(e.target[2].value)
-        })
-            .then(function (response) {
-                getProudcts()
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        console.log(e.target[3].value)
+        // axios.post(apiUrl + 'api/Product/', {
+        //     productName: String(e.target[0].value),
+        //     productPrice: Number(e.target[1].value),
+        //     subCategoryId: Number(e.target[2].value),
+        //     ProductPicture: Number(e.target[3].value)
+        // })
+        //     .then(function (response) {
+        //         getProudcts()
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
     }
     const searchTable = (e) => {
         let eventValue = e.target.value
@@ -152,7 +154,7 @@ function AdminPanelContent(props) {
                             <CategorySelect subCategorys={subCategorys}></CategorySelect>
                         </div>
                         <div className='me-2'>
-                            <div onClick={() => document.querySelectorAll('#choose-file').click()} className='border rounded d-flex align-items-center justify-content-center' style={{ width: "170px", height: "38px", padding: "6px 12px", cursor: "pointer", backgroundColor: "#f6f6f6" }}>
+                            <div onClick={() => document.querySelector('#choose-file').click()} className='border rounded d-flex align-items-center justify-content-center' style={{ width: "170px", height: "38px", padding: "6px 12px", cursor: "pointer", backgroundColor: "#f6f6f6", position: "relative" }}>
                                 <div className='me-2'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-cloud-plus" viewBox="0 0 16 16">
                                         <path fillRule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z" />
@@ -162,8 +164,8 @@ function AdminPanelContent(props) {
                                 <div>
                                     Resim Yükle
                                 </div>
+                                <input type="file" id="choose-file" name="choose-file" accept="image/*" required />
                             </div>
-                            <input type="file" id="choose-file" name="choose-file" accept="image/*" hidden />
                         </div>
                         <div>
                             <button type="submit" className="btn btn-success">Ürün Ekle <strong>+</strong></button>
