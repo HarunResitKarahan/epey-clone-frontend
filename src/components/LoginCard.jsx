@@ -91,10 +91,10 @@ function LoginCard() {
             {changeCard ?
                 <form className='Login mt-4' onSubmit={(e) => { e.preventDefault(); sendLoginRequest(e) }}>
                     <div className='eMail'>
-                        <input className='p-2 mb-3' id="" type="text" placeholder='Kullanıcı Adı' required />
+                        <input className='p-2 mb-3' type="text" placeholder='Kullanıcı Adı' required />
                     </div>
                     <div className='password'>
-                        <input className='p-2' id="" type="password" placeholder='Şifre' required />
+                        <input className='p-2' type="password" placeholder='Şifre' required />
                     </div>
                     <button className='submit mt-2 p-2'>
                         Giriş
