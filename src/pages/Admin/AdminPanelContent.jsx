@@ -16,6 +16,7 @@ function AdminPanelContent(props) {
     const [products, setProducts] = useState([])
     const [subCategorys, setSubCategorys] = useState([])
     const [users, setUsers] = useState([])
+    const [featured, setFeatured] = useState([])
     let parse = require('html-react-parser')
     useEffect(() => {
         getProudcts()
@@ -31,6 +32,15 @@ function AdminPanelContent(props) {
         axios.get(apiUrl + 'api/Product')
             .then(function (response) {
                 setProducts(response.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+    const getFeatured = () => {
+        axios.get(apiUrl + 'api/FeaturedProducts')
+            .then(function (response) {
+                setFeatured(response.data)
             })
             .catch(function (error) {
                 console.log(error);
@@ -77,6 +87,17 @@ function AdminPanelContent(props) {
         }
         reader.readAsDataURL(e.target[3].files[0]);
         // console.log(buf)
+    }
+    const addToFeatured = (productId) => {
+        axios.post(apiUrl + 'api/FeaturedProducts', {
+            productId: Number(productId),
+        })
+            .then(function (response) {
+                getFeatured()
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
     const searchTable = (e) => {
         let eventValue = e.target.value
@@ -228,7 +249,7 @@ function AdminPanelContent(props) {
                                                 <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                 </button>
                                                 <ul className="dropdown-menu">
-                                                    <li><div className="dropdown-item">Öne Çıkanlara Ekle</div></li>
+                                                    <li><div className="dropdown-item" onClick={() => addToFeatured(e.productId)}>Öne Çıkanlara Ekle</div></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -239,8 +260,54 @@ function AdminPanelContent(props) {
                     </table>
                 </div>
                 <h3 className='my-4 text-secondary'>Öne Çıkan Ürünler</h3>
-                <div>
-                    asd
+                <div className='addProduct flex-column mt-2 p-3'>
+                    <div className='productSearch w-100 my-2 mb-4'>
+                        <input type="text" className="form-control py-2" onChange={(e) => searchTable(e)} placeholder="Arama Yapın..." aria-label="ProductSearch" aria-describedby="basic-addon1" />
+                    </div>
+                    <table className="table border rounded">
+                        <thead className='table-light'>
+                            <tr className='headers'>
+                                <th scope="col">#</th>
+                                <th scope='col'>Ürün Resmi</th>
+                                <th scope="col">Ürün Adı</th>
+                                <th scope="col">Fiyat</th>
+                                <th scope="col">Kategori</th>
+                                <th scope="col-1"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {featured.map((e, i) => (
+                                <tr key={i}>
+                                    <th scope="row">{i + 1}</th>
+                                    <td><img className='img-fluid' src={e.productPicture} height={70} width={70} alt="" /></td>
+                                    <td>{e.productName}</td>
+                                    <td>{e.productPrice} ₺</td>
+                                    {/* <td></td> */}
+                                    {subCategorys
+                                        .filter(element => element.subCategoryId === e.subCategoryId)
+                                        .map((elmnt, index) => (
+                                            <td key={index}>{elmnt.subCategoryName}</td>
+                                        ))
+                                    }
+                                    <td className='buttons' style={{ width: "210px", whiteSpace: "nowrap" }}>
+                                        <div className='productEdit'>
+                                            <div className='selection'>
+                                                <button id={e.productId} className='btn me-2' onClick={(e) => { setSelectedProduct(e.target.id); setShowEditPopUp(true) }}>Güncelle</button>
+                                                <button id={e.productId} className='btn btn-danger me-2' onClick={(e) => { setSelectedProduct(e.target.id); setShowDeletePopUp(true) }}>Sil</button>
+                                            </div>
+                                            <div className='moreSelection dropdown ms-auto'>
+                                                <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                </button>
+                                                <ul className="dropdown-menu">
+                                                    <li><div className="dropdown-item" onClick={() => addToFeatured(e.productId)}>Öne Çıkanlara Ekle</div></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div className='logOut p-2' onClick={() => { localStorage.removeItem('token'); props.history.push('AdminLogin') }}>
