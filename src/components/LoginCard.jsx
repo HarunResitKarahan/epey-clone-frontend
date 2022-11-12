@@ -48,6 +48,9 @@ function LoginCard() {
                     <div className='name'>
                         <input className='p-2 mb-3' id="name" type="text" placeholder='Ad Soyad' required />
                     </div>
+                    <div className='name'>
+                        <input className='p-2 mb-3' id="loginName" type="text" placeholder='Kullanıcı Adı' required />
+                    </div>
                     <div className='eMail'>
                         <input className='p-2 mb-3' id="eMail" type="email" placeholder='E-posta' required />
                     </div>

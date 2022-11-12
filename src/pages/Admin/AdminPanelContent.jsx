@@ -165,7 +165,7 @@ function AdminPanelContent(props) {
                                 <tr key={i}>
                                     <th scope="row">{i + 1}</th>
                                     <td>{e.productName}</td>
-                                    <td>{e.productPrice}</td>
+                                    <td>{e.productPrice} ₺</td>
                                     {/* <td></td> */}
                                     {subCategorys
                                         .filter(element => element.subCategoryId === e.subCategoryId)
@@ -184,6 +184,10 @@ function AdminPanelContent(props) {
                             ))}
                         </tbody>
                     </table>
+                </div>
+                <h3 className='my-4 text-secondary'>Öne Çıkan Ürünler</h3>
+                <div>
+                    asd
                 </div>
             </div>
             <div className='logOut p-2' onClick={() => { localStorage.removeItem('token'); props.history.push('AdminLogin') }}>
