@@ -225,12 +225,10 @@ function AdminPanelContent(props) {
                                                 <button id={e.productId} className='btn btn-danger me-2' onClick={(e) => { setSelectedProduct(e.target.id); setShowDeletePopUp(true) }}>Sil</button>
                                             </div>
                                             <div className='moreSelection dropdown ms-auto'>
-                                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                 </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><div class="dropdown-item" href="#">Action</div></li>
-                                                    <li><div class="dropdown-item" href="#">Another action</div></li>
-                                                    <li><div class="dropdown-item" href="#">Something else here</div></li>
+                                                <ul className="dropdown-menu">
+                                                    <li><div className="dropdown-item">Öne Çıkanlara Ekle</div></li>
                                                 </ul>
                                             </div>
                                         </div>
