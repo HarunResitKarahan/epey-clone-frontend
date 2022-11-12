@@ -22,7 +22,9 @@ function Navbar() {
         if (user !== null) {
             axios.get(apiUrl + 'api/Users/' + user)
                 .then(function (response) {
-                    setIsLogin(true)
+                    if (response.status === 200) {
+                        setIsLogin(true)
+                    }
                 })
                 .catch(function (error) {
                     console.log(error);
