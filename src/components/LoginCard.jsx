@@ -69,6 +69,7 @@ function LoginCard() {
                     }
                     alert('Giriş Başarılı')
                     localStorage.setItem('user', userLoginName)
+                    history.push('')
                 } else {
                     alert("Giriş Başarısız")
                 }
