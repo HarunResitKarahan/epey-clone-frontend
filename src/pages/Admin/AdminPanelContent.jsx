@@ -197,6 +197,7 @@ function AdminPanelContent(props) {
                         <thead className='table-light'>
                             <tr className='headers'>
                                 <th scope="col">#</th>
+                                <th scope='col'>Ürün Resmi</th>
                                 <th scope="col">Ürün Adı</th>
                                 <th scope="col">Fiyat</th>
                                 <th scope="col">Kategori</th>
@@ -207,6 +208,7 @@ function AdminPanelContent(props) {
                             {products.map((e, i) => (
                                 <tr key={i}>
                                     <th scope="row">{i + 1}</th>
+                                    <td><img className='img-fluid' src={e.productPicture} height={70} width={70} alt="" /></td>
                                     <td>{e.productName}</td>
                                     <td>{e.productPrice} ₺</td>
                                     {/* <td></td> */}

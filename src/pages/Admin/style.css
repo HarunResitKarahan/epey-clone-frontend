@@ -131,6 +131,15 @@
     background-color: white;
 }
 
+th {
+    text-align: center;
+}
+
+td {
+    text-align: center;
+    vertical-align: baseline;
+}
+
 #choose-file {
     position: absolute;
     left: 0 !important;
