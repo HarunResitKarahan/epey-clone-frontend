@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom';
 
 function LoginCard() {
     const [changeCard, setChangeCard] = useState(true)
     const apiUrl = "http://localhost:8586/"
+    let history = useHistory()
     const changeButtonStyle = () => {
         // console.log(window.event.target)
         const buttons = document.querySelectorAll('.Buttons')
@@ -31,12 +33,43 @@ function LoginCard() {
         })
             .then(function (response) {
                 console.log(response)
+                if (response.status === 201) {
+                    for (let item of formElement) {
+                        item.value = ''
+                    }
+                    history.push('')
+                    alert('Kayıt Başarılı')
+                }
             })
             .catch(function (error) {
                 console.log(error);
                 alert("Kayıt Başarısız")
             });
 
+    }
+    const sendLoginRequest = (e) => {
+        const formElement = e.target;
+        const userLoginName = formElement[0].value
+        const userPassword = formElement[1].value
+        axios.post(apiUrl + 'api/Users/CheckUser', {
+            userLoginName: userLoginName,
+            userPassword: userPassword
+        })
+            .then(function (response) {
+                console.log(response)
+                if (response.data === "Giriş Başarılı") {
+                    for (let item of formElement) {
+                        item.value = ''
+                    }
+                    alert('Giriş Başarılı')
+                    localStorage.setItem('user', userLoginName)
+                } else {
+                    alert("Giriş Başarısız")
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
     return (
         <div className='d-flex flex-column justify-content-center align-items-center mt-4 p-2 m-auto' style={{ width: "fit-content", }}>
@@ -49,9 +82,9 @@ function LoginCard() {
                 </div>
             </div>
             {changeCard ?
-                <form className='Login mt-4' onSubmit={(e) => e.preventDefault()}>
+                <form className='Login mt-4' onSubmit={(e) => { e.preventDefault(); sendLoginRequest(e) }}>
                     <div className='eMail'>
-                        <input className='p-2 mb-3' id="" type="email" placeholder='E-posta' required />
+                        <input className='p-2 mb-3' id="" type="text" placeholder='Kullanıcı Adı' required />
                     </div>
                     <div className='password'>
                         <input className='p-2' id="" type="password" placeholder='Şifre' required />

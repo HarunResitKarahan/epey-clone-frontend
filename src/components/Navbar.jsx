@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from '../assets/images/logo.webp'
 import { useHistory } from "react-router-dom";
 // import { Link } from 'react-router-dom';
 import './Navbar.css'
 import SubNavbar from './SubNavbar'
+import axios from 'axios';
 
 function Navbar() {
     // let navigate = useHistory();
+    const apiUrl = "http://localhost:8586/"
+    const [isLogin, setIsLogin] = useState(false)
     let history = useHistory();
     const routeChange = () => {
         history.push(`UyeGirisi`);
@@ -14,6 +17,19 @@ function Navbar() {
     const routeHomeChange = () => {
         history.push(``);
     }
+    useEffect(() => {
+        let user = localStorage.getItem('user')
+        if (user !== null) {
+            axios.get(apiUrl + 'api/Users/' + user)
+                .then(function (response) {
+                    setIsLogin(true)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    })
+
     return (
         <>
             <nav className="navbar navbar-expand-sm navbar-light py-0">
@@ -32,8 +48,13 @@ function Navbar() {
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                         </svg>
                         <div className='mx-1'>
-                            <p>Giriş Yap</p>
-                            <p>veya Üye Ol</p>
+                            {isLogin ? <p>Hesabım</p>
+                                :
+                                <>
+                                    <p>Giriş Yap</p>
+                                    <p>veya Üye Ol</p>
+                                </>
+                            }
                         </div>
                         {/* <div className='ms-1'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#d96140" className="bi bi-caret-down-fill" viewBox="0 0 16 16">
