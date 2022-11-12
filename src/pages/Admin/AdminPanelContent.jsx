@@ -54,21 +54,29 @@ function AdminPanelContent(props) {
                 console.log(error);
             });
     }
-
     const addProduct = (e) => {
-        console.log(e.target[3].value)
-        // axios.post(apiUrl + 'api/Product/', {
-        //     productName: String(e.target[0].value),
-        //     productPrice: Number(e.target[1].value),
-        //     subCategoryId: Number(e.target[2].value),
-        //     ProductPicture: Number(e.target[3].value)
-        // })
-        //     .then(function (response) {
-        //         getProudcts()
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     });
+        // console.log(e.target[3].value)
+        let reader = new FileReader()
+        let buf = undefined
+        reader.onloadend = function () {
+            // console.log(reader.result)
+            // buf = Buffer.from(reader.result, 'base64');
+            buf = reader.result
+            axios.post(apiUrl + 'api/Product/', {
+                productName: String(e.target[0].value),
+                productPrice: Number(e.target[1].value),
+                subCategoryId: Number(e.target[2].value),
+                productPicture: buf
+            })
+                .then(function (response) {
+                    getProudcts()
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+        reader.readAsDataURL(e.target[3].files[0]);
+        // console.log(buf)
     }
     const searchTable = (e) => {
         let eventValue = e.target.value
@@ -154,7 +162,16 @@ function AdminPanelContent(props) {
                             <CategorySelect subCategorys={subCategorys}></CategorySelect>
                         </div>
                         <div className='me-2'>
-                            <div onClick={() => document.querySelector('#choose-file').click()} className='border rounded d-flex align-items-center justify-content-center' style={{ width: "170px", height: "38px", padding: "6px 12px", cursor: "pointer", backgroundColor: "#f6f6f6", position: "relative" }}>
+                            <div onClick={() => document.querySelector('#choose-file').click()} className='border rounded d-flex align-items-center justify-content-center'
+                                style={{
+                                    width: "170px",
+                                    height: "38px",
+                                    padding: "6px 12px",
+                                    cursor: "pointer",
+                                    backgroundColor: "#f6f6f6",
+                                    position: "relative",
+                                    overflow: "hidden"
+                                }}>
                                 <div className='me-2'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-cloud-plus" viewBox="0 0 16 16">
                                         <path fillRule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z" />
