@@ -62,7 +62,7 @@ function LoginCard() {
             userPassword: userPassword
         })
             .then(function (response) {
-                console.log(response)
+                // console.log(response)
                 if (response.data === "Giriş Başarılı") {
                     for (let item of formElement) {
                         item.value = ''
