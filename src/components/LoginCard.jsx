@@ -1,11 +1,17 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
 
 function LoginCard() {
     const [changeCard, setChangeCard] = useState(true)
     const apiUrl = "http://localhost:8586/"
     let history = useHistory()
+    useEffect(() => {
+        if (localStorage.getItem('user') !== null) {
+            history.push('')
+        }
+    })
+
     const changeButtonStyle = () => {
         // console.log(window.event.target)
         const buttons = document.querySelectorAll('.Buttons')
