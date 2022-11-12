@@ -36,10 +36,15 @@
     justify-content: center;
     cursor: pointer;
     min-width: fit-content;
+    position: relative;
 }
 
-.SignLogin:hover p {
+.SignLogin:hover .asd {
     color: #d96140;
+}
+
+.SignLogin:hover .subSignLogin {
+    display: block;
 }
 
 .SignLogin p:first-child {
@@ -51,4 +56,21 @@
 .SignLogin p:last-child {
     font-size: 12px;
     font-weight: 400;
+}
+
+.subSignLogin {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 2px solid #d96140;
+    border-radius: 5px;
+    padding: 3px;
+    width: 100%;
+    top: 100%;
+    z-index: 99;
+}
+
+.subSignLogin p:hover {
+    background-color: #d96140;
+    color: white;
 }

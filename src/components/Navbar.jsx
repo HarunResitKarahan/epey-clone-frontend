@@ -10,6 +10,7 @@ function Navbar() {
     // let navigate = useHistory();
     const apiUrl = "http://localhost:8586/"
     const [isLogin, setIsLogin] = useState(false)
+    const [userData, setUserData] = useState([])
     let history = useHistory();
     const routeChange = () => {
         history.push(`UyeGirisi`);
@@ -24,6 +25,7 @@ function Navbar() {
                 .then(function (response) {
                     if (response.status === 200) {
                         setIsLogin(true)
+                        setUserData(response.data)
                     }
                 })
                 .catch(function (error) {
@@ -45,25 +47,35 @@ function Navbar() {
                             </svg>
                         </div>
                     </div>
-                    <div className='SignLogin ms-2 p-1' onClick={routeChange}>
+                    <div className='SignLogin ms-2 p-1' onClick={isLogin ? false : routeChange}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#d96140" className="bi bi-person-fill" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                         </svg>
                         <div className='mx-1'>
                             {isLogin ?
-                                <p>Hesabım</p>
+                                <>
+                                    <p>Hesabım</p>
+                                    <p>{userData.userName}</p>
+                                </>
                                 :
                                 <>
-                                    <p>Giriş Yap</p>
-                                    <p>veya Üye Ol</p>
+                                    <p className='asd'>Giriş Yap</p>
+                                    <p className='asd'>veya Üye Ol</p>
                                 </>
                             }
                         </div>
-                        {/* <div className='ms-1'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#d96140" className="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                            </svg>
-                        </div> */}
+                        {isLogin ?
+                            <>
+                                <div className='ms-1'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#d96140" className="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                    </svg>
+                                </div>
+                                <div className="subSignLogin">
+                                    <p className='p-2' style={{ fontSize: "14px", fontWeight: "500", textAlign: "center" }}>Çıkış Yap</p>
+                                </div>
+                            </>
+                            : ''}
                     </div>
                 </div>
             </nav>
