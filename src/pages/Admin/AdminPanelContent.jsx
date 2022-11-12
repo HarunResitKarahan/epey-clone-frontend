@@ -70,7 +70,7 @@ function AdminPanelContent(props) {
     }
     const searchTable = (e) => {
         let eventValue = e.target.value
-        console.log(eventValue)
+        // console.log(eventValue)
         // console.log(trs)
         if (eventValue !== '') {
             for (let element of tds) {
