@@ -218,11 +218,21 @@ function AdminPanelContent(props) {
                                             <td key={index}>{elmnt.subCategoryName}</td>
                                         ))
                                     }
-                                    {/* <td>{subCategorys[e.subCategoryId]}</td> */}
-                                    <td className='buttons' style={{ width: "140px", whiteSpace: "nowrap" }}>
+                                    <td className='buttons' style={{ width: "210px", whiteSpace: "nowrap" }}>
                                         <div className='productEdit'>
-                                            <button id={e.productId} className='btn me-2' onClick={(e) => { setSelectedProduct(e.target.id); setShowEditPopUp(true) }}>Güncelle</button>
-                                            <button id={e.productId} className='btn btn-danger' onClick={(e) => { setSelectedProduct(e.target.id); setShowDeletePopUp(true) }}>Sil</button>
+                                            <div className='selection'>
+                                                <button id={e.productId} className='btn me-2' onClick={(e) => { setSelectedProduct(e.target.id); setShowEditPopUp(true) }}>Güncelle</button>
+                                                <button id={e.productId} className='btn btn-danger me-2' onClick={(e) => { setSelectedProduct(e.target.id); setShowDeletePopUp(true) }}>Sil</button>
+                                            </div>
+                                            <div className='moreSelection dropdown ms-auto'>
+                                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li><div class="dropdown-item" href="#">Action</div></li>
+                                                    <li><div class="dropdown-item" href="#">Another action</div></li>
+                                                    <li><div class="dropdown-item" href="#">Something else here</div></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>

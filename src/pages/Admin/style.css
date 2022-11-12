@@ -103,15 +103,16 @@
 }
 
 .productEdit {
+    display: flex;
     width: fit-content;
 }
 
-.productEdit button:first-child {
+.productEdit .selection button:nth-child(1) {
     background-color: #46B1C9;
     color: white;
 }
 
-.productEdit button:first-child:hover {
+.productEdit .selection button:first-child:hover {
     background-color: #46b1c9ce;
     color: white;
 }
@@ -145,4 +146,8 @@ td {
     left: 0 !important;
     top: 0 !important;
     z-index: -999 !important;
+}
+
+.moreSelection button {
+    background-color: none !important;
 }
