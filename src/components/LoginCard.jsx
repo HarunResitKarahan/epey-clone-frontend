@@ -1,7 +1,9 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 
 function LoginCard() {
     const [changeCard, setChangeCard] = useState(true)
+    const apiUrl = "http://localhost:8586/"
     const changeButtonStyle = () => {
         // console.log(window.event.target)
         const buttons = document.querySelectorAll('.Buttons')
@@ -12,6 +14,29 @@ function LoginCard() {
                 item.style.backgroundColor = '#d96140'; item.style.color = 'white'
             }
         }
+    }
+    const sendRegisterRequest = (e) => {
+        // console.log(e.target)
+        const formElement = e.target;
+        const userName = formElement[0].value
+        const userLoginName = formElement[1].value
+        const userMail = formElement[2].value
+        const userPassword = formElement[3].value
+
+        axios.post(apiUrl + 'api/Users', {
+            userLoginName: userLoginName,
+            userName: userName,
+            userPassword: userPassword,
+            userMail: userMail
+        })
+            .then(function (response) {
+                console.log(response)
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert("Kayıt Başarısız")
+            });
+
     }
     return (
         <div className='d-flex flex-column justify-content-center align-items-center mt-4 p-2 m-auto' style={{ width: "fit-content", }}>
@@ -44,7 +69,7 @@ function LoginCard() {
                         </div>
                     </div>
                 </form> :
-                <form className='Login mt-4' onSubmit={(e) => e.preventDefault()}>
+                <form className='Login mt-4' onSubmit={(e) => { e.preventDefault(); sendRegisterRequest(e); }}>
                     <div className='name'>
                         <input className='p-2 mb-3' id="name" type="text" placeholder='Ad Soyad' required />
                     </div>
@@ -57,7 +82,7 @@ function LoginCard() {
                     <div className='password'>
                         <input className='p-2' id="password" type="password" placeholder='Şifre' required />
                     </div>
-                    <button className='submit mt-2 p-2'>
+                    <button type='submit' className='submit mt-2 p-2'>
                         Kayıt Ol
                     </button>
                 </form>}
