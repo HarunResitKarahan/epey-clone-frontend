@@ -1,14 +1,35 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function FilterMenu() {
     const [rangeInputMinValue, setRangeInputMinValue] = useState('')
     const [rangeInputMaxValue, setRangeInputMaxValue] = useState('')
     const tds = document.querySelectorAll('.tableProductName')
+    const tdsPrice = document.querySelectorAll('.tableProductPrice')
     let trs = document.querySelectorAll('tr')
+
+    useEffect(() => {
+        if (rangeInputMinValue !== '' && rangeInputMaxValue !== '') {
+            for (let element of tdsPrice) {
+                if (Number(element.innerHTML.split(' ')[0]) >= rangeInputMinValue && Number(element.innerHTML.split(' ')[0]) <= rangeInputMaxValue) {
+                    for (let elmnt of trs) {
+                        if (element.parentNode.isEqualNode(elmnt)) {
+                            elmnt.style.display = 'table-row'
+                        }
+                    }
+                } else {
+                    element.parentNode.style.display = 'none'
+                }
+            }
+        } else {
+            for (let elmnt of trs) {
+                elmnt.style.display = 'table-row'
+            }
+        }
+    }, [rangeInputMinValue, rangeInputMaxValue])
+
+
     const searchTable = (e) => {
         let eventValue = e.target.value
-        // console.log(eventValue)
-        // console.log(trs)
         if (eventValue !== '') {
             for (let element of tds) {
                 let elementValue = element.innerText
@@ -30,7 +51,6 @@ function FilterMenu() {
                 elmnt.style.display = 'table-row'
             }
         }
-        // console.log(tds)
     }
     return (
         <div className='filterMenu col-sm-4 col-lg-3'>
@@ -63,27 +83,29 @@ function FilterMenu() {
                                     {/* <span>En Düşük</span> */}
                                     <input type="number" className="input-min" placeholder={0} value={rangeInputMinValue}
                                         onChange={(e) => { if (Number(e.target.value) !== 0) { setRangeInputMinValue(Number(e.target.value)) } else { setRangeInputMinValue('') } }}
-                                        onBlur={(e) => {
-                                            if (rangeInputMaxValue > Number(e.target.value) || rangeInputMaxValue === '' || rangeInputMinValue === '') {
-                                                setRangeInputMinValue(Number(e.target.value))
-                                                // setRangeInputMaxValue(Number(e.target.value) + 100)
-                                            } else {
-                                                setRangeInputMinValue(rangeInputMaxValue)
-                                            }
-                                        }} />
+                                    // onBlur={(e) => {
+                                    //     if (rangeInputMaxValue > Number(e.target.value) || rangeInputMaxValue === '' || rangeInputMinValue === '') {
+                                    //         setRangeInputMinValue(Number(e.target.value))
+                                    //         // setRangeInputMaxValue(Number(e.target.value) + 100)
+                                    //     } else {
+                                    //         setRangeInputMinValue(rangeInputMaxValue)
+                                    //     }
+                                    // }} 
+                                    />
                                 </div>
                                 <div className="separator">-</div>
                                 <div className="field">
                                     {/* <span>En Yüksek</span> */}
                                     <input type="number" className="input-max" placeholder={10000} value={rangeInputMaxValue}
                                         onChange={(e) => { if (Number(e.target.value) !== 0) { setRangeInputMaxValue(Number(e.target.value)) } else { setRangeInputMaxValue('') } }}
-                                        onBlur={(e) => {
-                                            if (Number(e.target.value) > rangeInputMinValue || rangeInputMinValue === '') {
-                                                setRangeInputMaxValue(Number(e.target.value))
-                                            } else {
-                                                setRangeInputMaxValue(rangeInputMinValue + 1)
-                                            }
-                                        }} />
+                                    // onBlur={(e) => {
+                                    //     if (Number(e.target.value) > rangeInputMinValue || rangeInputMinValue === '') {
+                                    //         setRangeInputMaxValue(Number(e.target.value))
+                                    //     } else {
+                                    //         setRangeInputMaxValue(rangeInputMinValue + 1)
+                                    //     }
+                                    // }} 
+                                    />
                                 </div>
                             </div>
                             {/* <div className="slider mt-4">
