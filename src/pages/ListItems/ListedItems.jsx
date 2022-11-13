@@ -5,7 +5,9 @@ function ListedItems(props) {
     return (
         <div className='col-sm-8 col-lg-9'>
             {filteredProducts.length === 0 ?
-                <div>Ürün yok</div>
+                <div className='m-auto h-100 d-flex justify-content-center align-items-center'>
+                    <p style={{ fontSize: "400%", color: "rgb(220 219 219)" }}>Ürün Yok</p>
+                </div>
                 : <table className="table rounded">
                     <thead className='border' style={{ backgroundColor: '#f8f4e0' }}>
                         <tr className='headers'>
