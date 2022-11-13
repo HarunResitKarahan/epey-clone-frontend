@@ -107,7 +107,7 @@ function AdminPanelContent(props) {
             for (let element of tds) {
                 let elementValue = element.innerText
                 if (elementValue.toLowerCase().includes(eventValue.toLowerCase())) {
-                    console.log(`${elementValue} : ${eventValue}`)
+                    // console.log(`${elementValue} : ${eventValue}`)
                     for (let elmnt of trs) {
                         // console.log(elmnt)
                         if (element.parentNode.isEqualNode(elmnt)) {
