@@ -9,18 +9,33 @@ import './style.css'
 function ListItems(props) {
     const apiUrl = "http://localhost:8586/"
     const [products, setProducts] = useState([])
+    const [subCategorys, setSubCategorys] = useState([])
     useEffect(() => {
         getProudcts()
+        getSubCategories()
     }, [])
 
     const getProudcts = () => {
-        axios.get(apiUrl + 'api/Product')
-            .then(function (response) {
-                setProducts(response.data)
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        if (products.length === 0) {
+            axios.get(apiUrl + 'api/Product')
+                .then(function (response) {
+                    setProducts(response.data)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    }
+    const getSubCategories = () => {
+        if (subCategorys.length === 0) {
+            axios.get(apiUrl + 'api/SubCategories')
+                .then(function (response) {
+                    setSubCategorys(response.data)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
     }
     return (
         <div className="App">
@@ -28,7 +43,7 @@ function ListItems(props) {
                 <Navbar></Navbar>
                 <div className='row mt-2'>
                     <FilterMenu></FilterMenu>
-                    <ListedItems products={products} categoryId={props.location.state.category}></ListedItems>
+                    <ListedItems products={products} subCategorys={subCategorys} categoryId={props.location.state.category}></ListedItems>
                 </div>
             </div>
             <Footer></Footer>

@@ -4,14 +4,35 @@ function ListedItems(props) {
     const filteredProducts = props.products.filter((e) => Number(e.subCategoryId) === Number(props.categoryId))
     return (
         <div className='col-sm-8 col-lg-9'>
-            {
-                filteredProducts.map((elmnt, i) => (
-                    <p key={i}>{elmnt.productName}</p>
-                ))
-            }
             {filteredProducts.length === 0 ?
                 <div>Ürün yok</div>
-                : ''}
+                : <table className="table border rounded">
+                    <thead className='table-light'>
+                        <tr className='headers'>
+                            <th scope='col'>Ürün Resmi</th>
+                            <th scope="col">Ürün Adı</th>
+                            <th scope="col">Fiyat</th>
+                            <th scope="col">Kategori</th>
+                            <th scope="col-1"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {filteredProducts.map((e, i) => (
+                            <tr key={i}>
+                                <td><img style={{ maxWidth: "100%", objectFit: "unset" }} src={e.productPicture} height={70} width={70} alt="" /></td>
+                                <td className='tableProductName'>{e.productName}</td>
+                                <td>{e.productPrice} ₺</td>
+                                {/* <td></td> */}
+                                {props.subCategorys
+                                    .filter(element => element.subCategoryId === e.subCategoryId)
+                                    .map((elmnt, index) => (
+                                        <td key={index}>{elmnt.subCategoryName}</td>
+                                    ))
+                                }
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>}
         </div>
     )
 }
