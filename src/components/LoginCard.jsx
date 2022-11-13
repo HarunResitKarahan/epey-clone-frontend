@@ -1,16 +1,32 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
+import AlertPopUp from './AlertPopUp';
 
 function LoginCard() {
     const [changeCard, setChangeCard] = useState(true)
     const apiUrl = "http://localhost:8586/"
     let history = useHistory()
+    const [alertMessage, setAlertMessage] = useState('')
     useEffect(() => {
         if (localStorage.getItem('user') !== null) {
             history.push('')
         }
     })
+    useEffect(() => {
+        if (alertMessage !== '') {
+            const alert = document.querySelector('.alertPopUp')
+            setTimeout(() => {
+                alert.style.bottom = '72px'
+            }, 50);
+            setTimeout(() => {
+                // const alert = document.querySelector('.alertPopUp')
+                alert.style.bottom = '-99px'
+                setAlertMessage('')
+            }, 3000);
+        }
+        // alert.style.bottom = '10px'
+    }, [alertMessage])
 
     const changeButtonStyle = () => {
         // console.log(window.event.target)
@@ -71,7 +87,7 @@ function LoginCard() {
                     localStorage.setItem('user', userLoginName)
                     history.push('')
                 } else {
-                    alert(response.data)
+                    setAlertMessage(response.data)
                 }
             })
             .catch(function (error) {
@@ -126,6 +142,7 @@ function LoginCard() {
                         Kayıt Ol
                     </button>
                 </form>}
+            {alertMessage !== '' ? <AlertPopUp alertMessage={alertMessage}></AlertPopUp> : undefined}
         </div>
     )
 }
