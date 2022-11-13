@@ -8,7 +8,7 @@ import EditPopUp from './Components/EditPopUp'
 
 function AdminPanelContent(props) {
     const apiUrl = "http://localhost:8586/"
-    const tds = document.querySelectorAll('td')
+    const tds = document.querySelectorAll('.tableProductName')
     let trs = document.querySelectorAll('tr')
     const [showEditPopUp, setShowEditPopUp] = useState(false)
     const [showDeletePopUp, setShowDeletePopUp] = useState(false)
@@ -16,7 +16,7 @@ function AdminPanelContent(props) {
     const [products, setProducts] = useState([])
     const [subCategorys, setSubCategorys] = useState([])
     const [users, setUsers] = useState([])
-    const [featured, setFeatured] = useState([])
+    // const [featured, setFeatured] = useState([])
     let parse = require('html-react-parser')
     useEffect(() => {
         getProudcts()
@@ -37,15 +37,15 @@ function AdminPanelContent(props) {
                 console.log(error);
             });
     }
-    const getFeatured = () => {
-        axios.get(apiUrl + 'api/FeaturedProducts')
-            .then(function (response) {
-                setFeatured(response.data)
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
+    // const getFeatured = () => {
+    //     axios.get(apiUrl + 'api/FeaturedProducts')
+    //         .then(function (response) {
+    //             setFeatured(response.data)
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         });
+    // }
     const getSubCategories = () => {
         axios.get(apiUrl + 'api/SubCategories')
             .then(function (response) {
@@ -88,17 +88,17 @@ function AdminPanelContent(props) {
         reader.readAsDataURL(e.target[3].files[0]);
         // console.log(buf)
     }
-    const addToFeatured = (productId) => {
-        axios.post(apiUrl + 'api/FeaturedProducts', {
-            productId: Number(productId),
-        })
-            .then(function (response) {
-                getFeatured()
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
+    // const addToFeatured = (productId) => {
+    //     axios.post(apiUrl + 'api/FeaturedProducts', {
+    //         productId: Number(productId),
+    //     })
+    //         .then(function (response) {
+    //             getFeatured()
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         });
+    // }
     const searchTable = (e) => {
         let eventValue = e.target.value
         // console.log(eventValue)
@@ -106,17 +106,17 @@ function AdminPanelContent(props) {
         if (eventValue !== '') {
             for (let element of tds) {
                 let elementValue = element.innerText
-                if (element.className !== 'buttons') {
-                    if (elementValue.includes(eventValue)) {
-                        for (let elmnt of trs) {
-                            // console.log(elmnt)
-                            if (element.parentNode !== elmnt && elmnt.className !== 'headers') {
-                                elmnt.style.display = 'none'
-                            } else {
-                                elmnt.style.display = 'table-row'
-                            }
+                if (elementValue.toLowerCase().includes(eventValue.toLowerCase())) {
+                    console.log(`${elementValue} : ${eventValue}`)
+                    for (let elmnt of trs) {
+                        // console.log(elmnt)
+                        if (element.parentNode.isEqualNode(elmnt)) {
+                            // console.log(element.parentNode)
+                            elmnt.style.display = 'table-row'
                         }
                     }
+                } else {
+                    element.parentNode.style.display = 'none'
                 }
             }
         } else {
@@ -230,7 +230,7 @@ function AdminPanelContent(props) {
                                 <tr key={i}>
                                     <th scope="row">{i + 1}</th>
                                     <td><img className='img-fluid' src={e.productPicture} height={70} width={70} alt="" /></td>
-                                    <td>{e.productName}</td>
+                                    <td className='tableProductName'>{e.productName}</td>
                                     <td>{e.productPrice} ₺</td>
                                     {/* <td></td> */}
                                     {subCategorys
@@ -249,7 +249,9 @@ function AdminPanelContent(props) {
                                                 <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                 </button>
                                                 <ul className="dropdown-menu">
-                                                    <li><div className="dropdown-item" onClick={() => addToFeatured(e.productId)}>Öne Çıkanlara Ekle</div></li>
+                                                    <li><div className="dropdown-item"
+                                                    // onClick={() => addToFeatured(e.productId)}
+                                                    >Öne Çıkanlara Ekle</div></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -259,7 +261,7 @@ function AdminPanelContent(props) {
                         </tbody>
                     </table>
                 </div>
-                <h3 className='my-4 text-secondary'>Öne Çıkan Ürünler</h3>
+                {/* <h3 className='my-4 text-secondary'>Öne Çıkan Ürünler</h3> */}
             </div>
             <div className='logOut p-2' onClick={() => { localStorage.removeItem('token'); props.history.push('AdminLogin') }}>
                 <div className='me-1'>
