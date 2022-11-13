@@ -6,8 +6,8 @@ function ListedItems(props) {
         <div className='col-sm-8 col-lg-9'>
             {filteredProducts.length === 0 ?
                 <div>Ürün yok</div>
-                : <table className="table border rounded">
-                    <thead className='table-light'>
+                : <table className="table rounded">
+                    <thead className='border' style={{ backgroundColor: '#f8f4e0' }}>
                         <tr className='headers'>
                             <th scope='col'>Ürün Resmi</th>
                             <th scope="col">Ürün Adı</th>
@@ -19,7 +19,7 @@ function ListedItems(props) {
                     <tbody>
                         {filteredProducts.map((e, i) => (
                             <tr key={i}>
-                                <td><img style={{ maxWidth: "100%", objectFit: "unset" }} src={e.productPicture} height={70} width={70} alt="" /></td>
+                                <td style={{ width: "160px" }}><img className='rounded' style={{ maxWidth: "100%", objectFit: "unset" }} src={e.productPicture} width={150} height={100} alt="" /></td>
                                 <td className='tableProductName'>{e.productName}</td>
                                 <td>{e.productPrice} ₺</td>
                                 {/* <td></td> */}
