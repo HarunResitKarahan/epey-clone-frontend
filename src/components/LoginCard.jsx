@@ -54,12 +54,16 @@ function LoginCard() {
             userMail: userMail
         })
             .then(function (response) {
-                console.log(response)
-                if (response.status === 201) {
+                if (response.status !== 'Başka Kullanıcı Adı Belirleyiniz') {
                     for (let item of formElement) {
                         item.value = ''
                     }
-                    history.push('')
+                    setAlertMessage('Kayıt Başarılı')
+                    setTimeout(() => {
+                        localStorage.setItem('user', userLoginName)
+                        history.push('')
+                    }, 1500);
+                } else {
                     setAlertMessage(response.data)
                 }
             })

@@ -1,5 +1,5 @@
 import React from 'react'
-import productImage from '../../assets/images/k_samsung-galaxy-a04e-1.webp'
+// import productImage from '../../assets/images/k_samsung-galaxy-a04e-1.webp'
 
 function PopulerProducts(props) {
     return (
