@@ -6,9 +6,10 @@ function ListedItems(props) {
             {props.categoryId}
             {props.products
                 .filter((e) => Number(e.subCategoryId) === Number(props.categoryId))
-                .map((elmnt, i) => console.log(elmnt))
+                .map((elmnt, i) => (
+                    <p key={i}>{elmnt.productName}</p>
+                ))
             }
-            {/* {props.products.filter(e=>)} */}
         </div>
     )
 }
