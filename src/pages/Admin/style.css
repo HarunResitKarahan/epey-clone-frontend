@@ -134,6 +134,7 @@
 
 th {
     text-align: center;
+    vertical-align: baseline;
 }
 
 td {

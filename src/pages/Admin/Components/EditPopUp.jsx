@@ -36,7 +36,7 @@ function EditPopUp(props) {
                 <input type="text" className='form-control mb-2' placeholder='Ürün Adı' required />
                 <input type="text" className='form-control mb-2' placeholder='Fiyatı' required />
                 <CategorySelect subCategorys={props.subCategorys}></CategorySelect>
-                <div onClick={() => document.querySelector('#choose-file').click()} className='border rounded d-flex align-items-center justify-content-center mt-2'
+                <div onClick={() => document.querySelector('input[name="edit-choose-file"]').click()} className='border rounded d-flex align-items-center justify-content-center mt-2'
                     style={{
                         width: "100%",
                         height: "38px",
@@ -55,7 +55,7 @@ function EditPopUp(props) {
                     <div>
                         Resim Yükle
                     </div>
-                    <input type="file" id="choose-file" name="choose-file" accept="image/*" required />
+                    <input type="file" id="choose-file" name="edit-choose-file" accept="image/*" required />
                 </div>
                 <button type='submit' className='btn btn-primary w-100 mt-2'>Güncelle</button>
             </form>

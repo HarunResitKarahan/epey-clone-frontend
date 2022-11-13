@@ -229,7 +229,7 @@ function AdminPanelContent(props) {
                             {products.map((e, i) => (
                                 <tr key={i}>
                                     <th scope="row">{i + 1}</th>
-                                    <td><img className='img-fluid' src={e.productPicture} height={70} width={70} alt="" /></td>
+                                    <td><img style={{ maxWidth: "100%", objectFit: "unset" }} src={e.productPicture} height={70} width={70} alt="" /></td>
                                     <td className='tableProductName'>{e.productName}</td>
                                     <td>{e.productPrice} ₺</td>
                                     {/* <td></td> */}
