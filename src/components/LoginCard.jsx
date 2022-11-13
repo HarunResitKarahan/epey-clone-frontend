@@ -60,12 +60,12 @@ function LoginCard() {
                         item.value = ''
                     }
                     history.push('')
-                    alert(response.data)
+                    setAlertMessage(response.data)
                 }
             })
             .catch(function (error) {
                 console.log(error);
-                alert("Sunucuya Erişilmiyor")
+                setAlertMessage("Sunucuya Erişilemiyor")
             });
 
     }
@@ -83,7 +83,7 @@ function LoginCard() {
                     for (let item of formElement) {
                         item.value = ''
                     }
-                    alert(response.data)
+                    setAlertMessage(response.data)
                     localStorage.setItem('user', userLoginName)
                     history.push('')
                 } else {
