@@ -181,7 +181,7 @@ function SubNavbar() {
                         <div className='row justify-content-center'>
                             {basliklar[dropDownType].map((e, i) => (
                                 <div key={i} className='col-4 py-2 col-md-3 d-flex flex-column'>
-                                    <div className='subNavbarDropDownItems d-flex align-items-center' onClick={() => routeChange(e.header)}>
+                                    <div className='subNavbarDropDownItems d-flex align-items-center' onClick={() => routeChange((i + 1) * (dropDownType + 1))}>
                                         <div>
                                             {e.svgs !== undefined ? parse(String(e.svgs)) : ''}
                                         </div>
