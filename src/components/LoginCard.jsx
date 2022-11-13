@@ -44,12 +44,12 @@ function LoginCard() {
                         item.value = ''
                     }
                     history.push('')
-                    alert('Kayıt Başarılı')
+                    alert(response.data)
                 }
             })
             .catch(function (error) {
                 console.log(error);
-                alert("Kayıt Başarısız")
+                alert("Sunucuya Erişilmiyor")
             });
 
     }
@@ -67,11 +67,11 @@ function LoginCard() {
                     for (let item of formElement) {
                         item.value = ''
                     }
-                    alert('Giriş Başarılı')
+                    alert(response.data)
                     localStorage.setItem('user', userLoginName)
                     history.push('')
                 } else {
-                    alert("Giriş Başarısız")
+                    alert(response.data)
                 }
             })
             .catch(function (error) {
