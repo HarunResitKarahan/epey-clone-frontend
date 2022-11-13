@@ -9,10 +9,8 @@ import './style.css'
 function ListItems(props) {
     const apiUrl = "http://localhost:8586/"
     const [products, setProducts] = useState([])
-    const [subCategorys, setSubCategorys] = useState([])
     useEffect(() => {
         getProudcts()
-        getSubCategories()
     }, [])
 
     const getProudcts = () => {
@@ -24,22 +22,13 @@ function ListItems(props) {
                 console.log(error);
             });
     }
-    const getSubCategories = () => {
-        axios.get(apiUrl + 'api/SubCategories')
-            .then(function (response) {
-                setSubCategorys(response.data)
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
     return (
         <div className="App">
             <div className='container'>
                 <Navbar></Navbar>
                 <div className='row mt-2'>
                     <FilterMenu></FilterMenu>
-                    <ListedItems products={products} subCategorys={subCategorys} categoryName={props.location.state.category}></ListedItems>
+                    <ListedItems products={products} categoryId={props.location.state.category}></ListedItems>
                 </div>
             </div>
             <Footer></Footer>
