@@ -1,8 +1,10 @@
 import React from 'react'
 
-function ListedItems() {
+function ListedItems(props) {
     return (
-        <div className='col-sm-8 col-lg-9'>ListedItems</div>
+        <div className='col-sm-8 col-lg-9'>
+            {props.categoryName}
+        </div>
     )
 }
 

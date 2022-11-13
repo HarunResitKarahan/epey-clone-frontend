@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 function FilterMenu() {
     const [rangeInputMinValue, setRangeInputMinValue] = useState('')
     const [rangeInputMaxValue, setRangeInputMaxValue] = useState('')
+
     return (
         <div className='filterMenu col-sm-4 col-lg-3'>
             <div className='filters border p-2'>
@@ -14,7 +15,7 @@ function FilterMenu() {
                         </svg>
                     </div>
                 </div>
-                <div className='filterBrands'>
+                {/* <div className='filterBrands'>
                     <h6 className='mt-2'>Markalar</h6>
                     <div className='filterContent p-2'>
                         {[...Array(7)].map((e, i) => (
@@ -24,7 +25,7 @@ function FilterMenu() {
                             </div>
                         ))}
                     </div>
-                </div>
+                </div> */}
                 <div className='filterPriceBetween'>
                     <h6 className='mt-2'>Fiyat Aralığı</h6>
                     <div className='filterContent p-2'>
