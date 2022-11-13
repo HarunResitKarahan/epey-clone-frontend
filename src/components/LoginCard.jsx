@@ -17,7 +17,7 @@ function LoginCard() {
         if (alertMessage !== '') {
             const alert = document.querySelector('.alertPopUp')
             setTimeout(() => {
-                alert.style.bottom = '72px'
+                alert.style.bottom = '92px'
             }, 50);
             setTimeout(() => {
                 // const alert = document.querySelector('.alertPopUp')
@@ -84,8 +84,10 @@ function LoginCard() {
                         item.value = ''
                     }
                     setAlertMessage(response.data)
-                    localStorage.setItem('user', userLoginName)
-                    history.push('')
+                    setTimeout(() => {
+                        localStorage.setItem('user', userLoginName)
+                        history.push('')
+                    }, 1500);
                 } else {
                     setAlertMessage(response.data)
                 }
