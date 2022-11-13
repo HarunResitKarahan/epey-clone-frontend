@@ -23,7 +23,7 @@ function ListedItems(props) {
                             <tr key={i}>
                                 <td style={{ width: "160px" }}><img className='rounded' style={{ maxWidth: "100%", objectFit: "unset" }} src={e.productPicture} width={150} height={100} alt="" /></td>
                                 <td className='tableProductName'>{e.productName}</td>
-                                <td>{e.productPrice} ₺</td>
+                                <td className='tableProductPrice'>{e.productPrice} ₺</td>
                                 {/* <td></td> */}
                                 {props.subCategorys
                                     .filter(element => element.subCategoryId === e.subCategoryId)
